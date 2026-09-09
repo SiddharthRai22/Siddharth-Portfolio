@@ -11,7 +11,7 @@ function ScrollHandler() {
     if (hash) {
       const timer = setTimeout(() => {
         const id = hash.replace('#', '');
-        const element = document.getElementById(id);
+        const element = document.getElementById(id) || (id === 'projects' ? document.getElementById('work') : id === 'work' ? document.getElementById('projects') : null);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
         }

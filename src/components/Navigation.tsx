@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowUpRight, Menu, X } from 'lucide-react';
+import { Menu, X, Github, Linkedin } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-const NAV_ITEMS = ['Work', 'About', 'Services', 'Education', 'Skills', 'Contact'];
+const NAV_ITEMS = ['About', 'Projects', 'Education', 'Skills', 'Contact'];
 
 export const Navigation = ({ isReady = true }: { isReady?: boolean } = {}) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,14 +27,17 @@ export const Navigation = ({ isReady = true }: { isReady?: boolean } = {}) => {
   useEffect(() => {
     if (pathname !== '/') return;
     const sections = ['hero', ...NAV_ITEMS.map((item) => item.toLowerCase())]
-      .map((id) => document.getElementById(id))
+      .map((id) => document.getElementById(id) || (id === 'projects' ? document.getElementById('work') : null))
       .filter((section): section is HTMLElement => Boolean(section));
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
           .filter((entry) => entry.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) setActiveSection(visible.target.id);
+        if (visible) {
+          const sectionId = visible.target.id === 'work' ? 'projects' : visible.target.id;
+          setActiveSection(sectionId);
+        }
       },
       { rootMargin: '-30% 0px -60% 0px', threshold: [0, 0.25, 0.6] },
     );
@@ -60,7 +63,7 @@ export const Navigation = ({ isReady = true }: { isReady?: boolean } = {}) => {
     if (pathname === '/' && href.startsWith('/#')) {
       e.preventDefault();
       const id = href.replace('/#', '');
-      const element = document.getElementById(id);
+      const element = document.getElementById(id) || (id === 'projects' ? document.getElementById('work') : id === 'work' ? document.getElementById('projects') : null);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
         window.history.pushState(null, '', href);
@@ -93,27 +96,49 @@ export const Navigation = ({ isReady = true }: { isReady?: boolean } = {}) => {
           </Link>
 
           <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary navigation">
-            {NAV_ITEMS.map((item) => (
-              <Link 
-                key={item} 
-                to={`/#${item.toLowerCase()}`} 
-                onClick={(e) => handleLinkClick(e as any, `/#${item.toLowerCase()}`)}
-                className={cn(
-                  "rounded-full border px-3 py-2 font-mono text-[0.65rem] font-bold uppercase tracking-[0.12em] transition-colors",
-                  activeSection === item.toLowerCase()
-                    ? "border-[#b45309] bg-[#b45309] text-[#faf4ee]"
-                    : "border-transparent text-[#8d6b4f] hover:text-[#3e1a0a]",
-                )}
+            {NAV_ITEMS.map((item) => {
+              const targetId = item.toLowerCase();
+              return (
+                <Link 
+                  key={item} 
+                  to={`/#${targetId}`} 
+                  onClick={(e) => handleLinkClick(e as any, `/#${targetId}`)}
+                  className={cn(
+                    "rounded-full border px-3 py-2 font-mono text-[0.65rem] font-bold uppercase tracking-[0.12em] transition-colors",
+                    activeSection === targetId
+                      ? "border-[#b45309] bg-[#b45309] text-[#faf4ee]"
+                      : "border-transparent text-[#8d6b4f] hover:text-[#3e1a0a]",
+                  )}
+                >
+                  {item}
+                </Link>
+              );
+            })}
+
+            <div className="mx-2 h-4 w-px bg-[rgba(62,26,10,0.2)]" aria-hidden="true" />
+
+            <div className="flex items-center gap-1">
+              <a 
+                href="https://github.com/SiddharthRai22"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-8 w-8 items-center justify-center rounded-full text-[#8d6b4f] transition-colors hover:bg-[#b45309]/10 hover:text-[#3e1a0a]"
+                aria-label="GitHub profile"
+                title="GitHub"
               >
-                {item}
-              </Link>
-            ))}
-            <a 
-              href="mailto:siddharthkumarrai23@gmail.com"
-              className="ml-3 inline-flex items-center gap-2 rounded-full bg-[#b45309] px-4 py-2 text-xs font-bold text-[#faf4ee] transition-colors hover:bg-[#3e1a0a]"
-            >
-              Open channel <ArrowUpRight className="h-3.5 w-3.5" />
-            </a>
+                <Github className="h-4 w-4" />
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/iam-siddharth"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-8 w-8 items-center justify-center rounded-full text-[#8d6b4f] transition-colors hover:bg-[#b45309]/10 hover:text-[#3e1a0a]"
+                aria-label="LinkedIn profile"
+                title="LinkedIn"
+              >
+                <Linkedin className="h-4 w-4" />
+              </a>
+            </div>
           </nav>
 
           <button 
@@ -140,20 +165,51 @@ export const Navigation = ({ isReady = true }: { isReady?: boolean } = {}) => {
           >
             <nav className="relative flex h-full flex-col" aria-label="Mobile navigation">
               <p className="system-label mb-8">Navigation</p>
-              {NAV_ITEMS.map((item, index) => (
-                <Link 
-                  key={item} 
-                  to={`/#${item.toLowerCase()}`} 
-                  onClick={(e) => handleLinkClick(e as any, `/#${item.toLowerCase()}`)}
-                  className="group flex items-center justify-between border-t border-[rgba(62,26,10,0.08)] py-4 text-[clamp(1.8rem,10vw,3.6rem)] font-semibold leading-none text-[#3e1a0a]"
+              {NAV_ITEMS.map((item, index) => {
+                const targetId = item.toLowerCase();
+                return (
+                  <Link 
+                    key={item} 
+                    to={`/#${targetId}`} 
+                    onClick={(e) => handleLinkClick(e as any, `/#${targetId}`)}
+                    className="group flex items-center justify-between border-t border-[rgba(62,26,10,0.08)] py-4 text-[clamp(1.8rem,10vw,3.6rem)] font-semibold leading-none text-[#3e1a0a]"
+                  >
+                    {item}
+                    <span className="font-mono text-xs font-bold text-[#8d6b4f] transition-colors group-hover:text-[#b45309]">0{index + 1}</span>
+                  </Link>
+                );
+              })}
+
+              <div className="mt-auto flex items-center justify-between border-t border-[rgba(62,26,10,0.08)] pt-5">
+                <div className="flex items-center gap-3">
+                  <a
+                    href="https://github.com/SiddharthRai22"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(62,26,10,0.15)] bg-[#faf4ee] text-[#3e1a0a] transition-colors hover:border-[#b45309] hover:text-[#b45309]"
+                    aria-label="GitHub profile"
+                    title="GitHub"
+                  >
+                    <Github className="h-5 w-5" />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/iam-siddharth"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(62,26,10,0.15)] bg-[#faf4ee] text-[#3e1a0a] transition-colors hover:border-[#b45309] hover:text-[#b45309]"
+                    aria-label="LinkedIn profile"
+                    title="LinkedIn"
+                  >
+                    <Linkedin className="h-5 w-5" />
+                  </a>
+                </div>
+                <a 
+                  href="mailto:siddharthkumarrai23@gmail.com" 
+                  className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[#b45309] hover:underline"
                 >
-                  {item}
-                  <span className="font-mono text-xs font-bold text-[#8d6b4f] transition-colors group-hover:text-[#b45309]">0{index + 1}</span>
-                </Link>
-              ))}
-              <a href="mailto:siddharthkumarrai23@gmail.com" className="mt-auto flex items-center justify-between border-t border-[rgba(62,26,10,0.08)] pt-5 font-mono text-xs font-bold uppercase tracking-[0.12em] text-[#b45309]">
-                Open project channel <ArrowUpRight className="h-4 w-4" />
-              </a>
+                  Contact Email &rarr;
+                </a>
+              </div>
             </nav>
           </motion.div>
         )}

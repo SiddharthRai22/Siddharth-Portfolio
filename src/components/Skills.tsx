@@ -6,6 +6,8 @@ import vines from '@/assets/images/vines.jpeg';
 import vinesMobile from '@/assets/images/vines_mobile.jpeg';
 import { SKILLS } from '@/lib/constants';
 import { ParallaxSection } from './ParallaxSection';
+import { useSectionTheme, SectionTheme } from './SectionContext';
+import { cn } from '@/lib/utils';
 
 const VINES_POS: Array<{ name: string; x: number; y: number }> = [
   { name: 'Python', x: 38, y: 20 },
@@ -61,20 +63,59 @@ const VINES_SKILLS_MOBILE = SKILLS.map((s, i) => ({
   name: s.name,
 }));
 
-export const Skills = () => {
+export const Skills = ({ theme: explicitTheme }: { theme?: SectionTheme } = {}) => {
+  const theme = useSectionTheme(explicitTheme);
+  const isOrange = theme === 'orange';
+
   return (
-    <section id="skills" className="scroll-mt-20 overflow-hidden bg-[#b45309] py-24 md:py-36">
+    <section
+      id="skills"
+      className={cn(
+        'scroll-mt-20 overflow-hidden py-24 md:py-36 transition-colors duration-500',
+        isOrange ? 'bg-[#b45309] text-[#faf4ee]' : 'bg-[#f7ede0] text-[#3e1a0a]',
+      )}
+    >
       <ParallaxSection className="section-shell">
         <div className="mb-12 grid gap-8 lg:grid-cols-2 lg:items-end">
           <div>
-            <p className="system-label system-label--on-orange mb-5 !text-[#faf4ee] [&::before]:!bg-[#faf4ee] [&::before]:!shadow-[0_0_0.7rem_rgba(250,244,238,0.6)]">Craft & Stack</p>
-            <h2 className="text-[clamp(3rem,7vw,7rem)] font-semibold leading-[0.88] tracking-[-0.02em] text-[#faf4ee]">Tools, selected.</h2>
+            <p
+              className={cn(
+                'system-label mb-5',
+                isOrange
+                  ? 'system-label--on-orange !text-[#faf4ee] [&::before]:!bg-[#faf4ee] [&::before]:!shadow-[0_0_0.7rem_rgba(250,244,238,0.6)]'
+                  : '!text-[#8d6b4f] [&::before]:!bg-[#b45309] [&::before]:!shadow-[0_0_0.7rem_rgba(180,83,9,0.38)]',
+              )}
+            >
+              Craft &amp; Stack
+            </p>
+            <h2
+              className={cn(
+                'text-[clamp(3rem,7vw,7rem)] font-semibold leading-[0.88] tracking-[-0.02em]',
+                isOrange ? 'text-[#faf4ee]' : 'text-[#3e1a0a]',
+              )}
+            >
+              Tools, selected.
+            </h2>
           </div>
-          <p className="max-w-lg text-base leading-relaxed text-[#faf4ee]/85 lg:justify-self-end md:text-lg">A clear, curated stack for robust web solutions, agentic AI workflows, and modern digital architectures.</p>
+          <p
+            className={cn(
+              'max-w-lg text-base leading-relaxed lg:justify-self-end md:text-lg',
+              isOrange ? 'text-[#faf4ee]/85' : 'text-[#6d4a32]',
+            )}
+          >
+            A clear, curated stack for robust web solutions, agentic AI workflows, and modern digital architectures.
+          </p>
         </div>
 
         {/* Desktop vines infinity - full bleed, no crop */}
-        <div className="relative hidden w-full overflow-hidden rounded-[32px] border border-[#faf4ee]/20 bg-[#faf4ee] p-2 lg:block">
+        <div
+          className={cn(
+            'relative hidden w-full overflow-hidden rounded-[32px] border p-2 lg:block',
+            isOrange
+              ? 'border-[#faf4ee]/20 bg-[#faf4ee]'
+              : 'border-[rgba(62,26,10,0.12)] bg-[#faf4ee] shadow-[0_16px_48px_rgba(62,26,10,0.06)]',
+          )}
+        >
           <div className="relative aspect-[1408/768] w-full overflow-hidden rounded-[24px]">
             <Image src={vines} alt="" fill priority sizes="100vw" className="object-contain object-center" />
             {VINES_SKILLS.slice(0, SKILLS.length).map((skill, i) => (
@@ -98,7 +139,14 @@ export const Skills = () => {
         </div>
 
         {/* Mobile + Tablet portrait vines — hand-tuned < lg */}
-        <div className="relative w-full overflow-hidden rounded-[32px] border border-[#faf4ee]/20 bg-[#faf4ee] p-2 lg:hidden">
+        <div
+          className={cn(
+            'relative w-full overflow-hidden rounded-[32px] border p-2 lg:hidden',
+            isOrange
+              ? 'border-[#faf4ee]/20 bg-[#faf4ee]'
+              : 'border-[rgba(62,26,10,0.12)] bg-[#faf4ee] shadow-[0_16px_48px_rgba(62,26,10,0.06)]',
+          )}
+        >
           <div className="relative aspect-[768/1376] w-full overflow-hidden rounded-[24px]">
             <Image src={vinesMobile} alt="" fill priority={false} sizes="100vw" className="object-contain object-center" />
             {VINES_SKILLS_MOBILE.slice(0, SKILLS.length).map((skill, i) => (
@@ -124,3 +172,4 @@ export const Skills = () => {
     </section>
   );
 };
+
