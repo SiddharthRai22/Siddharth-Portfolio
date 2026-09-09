@@ -1,15 +1,37 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
 import { Projects } from "@/components/Projects";
-import { Services } from "@/components/Services";
 import { Skills } from "@/components/Skills";
 import { Reviews } from "@/components/Reviews";
 import { Contact } from "@/components/Contact";
 import { FallingLeavesScene } from "@/components/FallingLeavesScene";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { SectionProvider } from "@/components/SectionContext";
+
+interface SectionDefinition {
+  id: string;
+  render: (props: { isReady: boolean }) => React.ReactNode;
+}
+
+// Dynamic ordered section registry:
+// The alternating color theme is automatically calculated by SectionProvider
+// based on the section's position (index) in this list:
+// Section 1 (index 0): Hero      -> Light/cream
+// Section 2 (index 1): About     -> Orange/warm
+// Section 3 (index 2): Projects  -> Light/cream
+// Section 4 (index 3): Skills    -> Orange/warm
+// Section 5 (index 4): Education -> Light/cream
+// Section 6 (index 5): Contact   -> Orange/warm
+const SECTIONS: SectionDefinition[] = [
+  { id: 'hero', render: ({ isReady }) => <Hero isReady={isReady} /> },
+  { id: 'about', render: () => <About /> },
+  { id: 'projects', render: () => <Projects /> },
+  { id: 'skills', render: () => <Skills /> },
+  { id: 'education', render: () => <Reviews /> },
+  { id: 'contact', render: () => <Contact /> },
+];
 
 export const HomePage = () => {
   const [loaded, setLoaded] = useState(false);
@@ -18,14 +40,6 @@ export const HomePage = () => {
     document.title = "Siddharth Kumar Rai | Full Stack Developer & AI Engineer";
   }, []);
 
-  // Ordered sections configuration:
-  // Section 1 (index 0): Hero     -> Light
-  // Section 2 (index 1): About    -> Orange
-  // Section 3 (index 2): Projects -> Light
-  // Section 4 (index 3): Services -> Orange
-  // Section 5 (index 4): Reviews  -> Light
-  // Section 6 (index 5): Skills   -> Orange
-  // Section 7 (index 6): Contact  -> Light
   return (
     <div className="min-h-screen bg-[#f7ede0] font-sans text-[#3e1a0a]">
       {!loaded && <LoadingScreen onDone={() => setLoaded(true)} />}
@@ -33,33 +47,11 @@ export const HomePage = () => {
       <Navigation isReady={loaded} />
       
       <main>
-        <SectionProvider index={0}>
-          <Hero isReady={loaded} />
-        </SectionProvider>
-
-        <SectionProvider index={1}>
-          <About />
-        </SectionProvider>
-
-        <SectionProvider index={2}>
-          <Projects />
-        </SectionProvider>
-
-        <SectionProvider index={3}>
-          <Services />
-        </SectionProvider>
-
-        <SectionProvider index={4}>
-          <Reviews />
-        </SectionProvider>
-
-        <SectionProvider index={5}>
-          <Skills />
-        </SectionProvider>
-
-        <SectionProvider index={6}>
-          <Contact />
-        </SectionProvider>
+        {SECTIONS.map((section, index) => (
+          <SectionProvider key={section.id} index={index}>
+            {section.render({ isReady: loaded })}
+          </SectionProvider>
+        ))}
       </main>
     </div>
   );

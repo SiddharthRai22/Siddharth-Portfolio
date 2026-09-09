@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, Github, Linkedin } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-const NAV_ITEMS = ['About', 'Projects', 'Education', 'Skills', 'Contact'];
+const NAV_ITEMS = ['About', 'Projects', 'Skills', 'Education', 'Contact'];
 
 export const Navigation = ({ isReady = true }: { isReady?: boolean } = {}) => {
   const [isScrolled, setIsScrolled] = useState(false);
