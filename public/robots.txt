@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://siddharth-kumar-rai.vercel.app/sitemap.xml
