@@ -10,7 +10,7 @@ import { ProjectCard } from './ProjectCard';
 import { ParallaxSection } from './ParallaxSection';
 import { useSectionTheme, SectionTheme } from './SectionContext';
 
-const FILTERS: Array<'All' | ProjectCategory> = ['All', 'Web', 'Mobile', 'AI'];
+const FILTERS: Array<'All' | ProjectCategory> = ['All', 'Web', 'AI'];
 
 export const Projects = ({ theme: explicitTheme }: { theme?: SectionTheme } = {}) => {
   const theme = useSectionTheme(explicitTheme);
@@ -190,29 +190,12 @@ export const Projects = ({ theme: explicitTheme }: { theme?: SectionTheme } = {}
                       alt={`${activeProject.title} interface`}
                       fill
                       sizes="55vw"
-                      className="object-contain transition-transform duration-700 ease-out group-hover:scale-[1.045]"
+                      className="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.045]"
                       priority={true}
-                    />
-                    <div
-                      className={cn(
-                        'pointer-events-none absolute inset-0 bg-gradient-to-t via-transparent to-transparent',
-                        isOrange ? 'from-[#3e1a0a]/25' : 'from-[#3e1a0a]/12',
-                      )}
                     />
                   </motion.div>
                 ) : null}
               </AnimatePresence>
-              <div
-                className={cn(
-                  'absolute inset-x-0 bottom-0 z-10 flex items-center justify-between p-5 font-mono text-[0.6rem] uppercase tracking-[0.12em]',
-                  isOrange ? 'text-[#faf4ee]' : 'text-[#8d6b4f]',
-                )}
-              >
-                <span className={isOrange ? 'text-[#faf4ee]' : 'text-[#3e1a0a]'}>
-                  Collection / {String(activeIndex + 1).padStart(2, '0')}
-                </span>
-                <span className={isOrange ? 'text-[#faf4ee]/80' : 'text-[#8d6b4f]'}>Archive</span>
-              </div>
             </div>
           </div>
 

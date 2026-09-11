@@ -1,10 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Image } from '@/components/Image';
 import { motion } from 'motion/react';
-import siddharthPortrait from '@/assets/images/siddharth_portrait.jpg';
-import leftBranch from '@/assets/images/left_branch.png';
 import { ParallaxSection } from './ParallaxSection';
 import { useSectionTheme, SectionTheme } from './SectionContext';
 import { cn } from '@/lib/utils';
@@ -24,94 +21,137 @@ export const About = ({ theme: explicitTheme }: { theme?: SectionTheme } = {}) =
       )}
     >
       <ParallaxSection className="section-shell">
-        <div className="mx-auto grid max-w-[68rem] gap-14 lg:max-w-[60rem] lg:grid-cols-[0.95fr_1.05fr] lg:items-start lg:gap-12 xl:max-w-[64rem] xl:gap-14 2xl:max-w-[68rem] 2xl:gap-16">
-          <motion.div
-            initial={{ opacity: 0, x: -48 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-12%' }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="relative mx-auto w-full max-w-[480px] lg:mx-0"
-          >
-            <p
-              className={cn(
-                'system-label mb-5',
-                isOrange &&
-                  'system-label--on-orange !text-[#faf4ee] [&::before]:!bg-[#faf4ee] [&::before]:!shadow-[0_0_0.7rem_rgba(250,244,238,0.6)]',
-              )}
+        <div className="mx-auto max-w-[78rem]">
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-12 xl:gap-16 lg:items-center">
+            {/* Left Column: About Content */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              className="flex flex-col justify-center lg:pr-6 xl:pr-10"
             >
-              About
-            </p>
-            <div className="absolute -left-6 -top-6 hidden h-[120px] w-[120px] opacity-[0.14] lg:block" aria-hidden="true">
-              <Image src={leftBranch} alt="" fill sizes="120px" className="object-contain object-left-top" />
-            </div>
-            <div
-              className={cn(
-                'relative aspect-[4/5] overflow-hidden rounded-[40px] border shadow-[0_16px_48px_rgba(62,26,10,0.09)]',
-                isOrange
-                  ? 'border-[#faf4ee]/20 bg-[#faf4ee]/10 shadow-[0_16px_48px_rgba(0,0,0,0.2)]'
-                  : 'border-[#b45309]/12 bg-[#faf4ee]',
-              )}
-            >
-              <Image src={siddharthPortrait} alt="Siddharth Kumar Rai portrait" fill sizes="(max-width: 768px) 85vw, 480px" className="object-cover object-top" priority />
-            </div>
-          </motion.div>
+              {/* Eyebrow: • ABOUT */}
+              <div
+                className={cn(
+                  'flex items-center gap-2 font-mono text-[0.7rem] sm:text-[0.75rem] uppercase tracking-[0.2em]',
+                  isOrange ? 'text-[#faf4ee]/80' : 'text-[#8d6b4f]',
+                )}
+              >
+                <span
+                  className={cn(
+                    'inline-block h-1.5 w-1.5 rounded-full',
+                    isOrange ? 'bg-[#faf4ee]' : 'bg-[#b45309]',
+                  )}
+                  aria-hidden="true"
+                />
+                <span>ABOUT</span>
+              </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.12 }}
-            className="w-full lg:pt-[28px]"
-          >
-            <h2
-              className={cn(
-                'w-full text-balance text-[clamp(2.4rem,5vw,5.2rem)] font-semibold leading-[0.96] tracking-[-0.02em]',
-                isOrange ? 'text-[#faf4ee]' : 'text-[#3e1a0a]',
-              )}
-            >
-              Engineering with precision.{' '}
-              <span
+              {/* Headline: Engineering with purpose. */}
+              <h2
                 className={cn(
-                  'font-light italic',
-                  isOrange ? 'text-[#faf4ee]/90 underline decoration-[#faf4ee]/30 decoration-wavy' : 'text-[#b45309]',
+                  'mt-4 font-serif text-[clamp(2.75rem,5.5vw,5.25rem)] font-normal leading-[1.02] tracking-[-0.01em]',
+                  isOrange ? 'text-[#faf4ee]' : 'text-[#3e1a0a]',
                 )}
               >
-                Intelligence in every layer.
-              </span>
-            </h2>
-            <div
-              className={cn(
-                'mt-10 grid w-full gap-6 text-balance text-base leading-[1.7] md:text-lg',
-                isOrange ? 'text-[#faf4ee]/85' : 'text-[#6d4a32]',
-              )}
-            >
-              <p className="max-w-[46ch]">
-                I am a Computer Science Engineer and Full Stack Developer specializing in the MERN stack and AI-powered applications. I build responsive, scalable web applications and explore how AI can elevate user experiences.
-              </p>
-              <p className="max-w-[46ch]">
-                I have worked on multiple projects involving modern technologies like React, Node.js, and LLM-based frameworks including LangChain and LangGraph to create intelligent, real-time systems.
-              </p>
-            </div>
-            <div
-              className={cn(
-                'mt-8 border-l-2 pl-6',
-                isOrange ? 'border-[#faf4ee]/30' : 'border-[#b45309]/20',
-              )}
-            >
-              <p
+                Engineering
+                <br />
+                with purpose.
+              </h2>
+
+              {/* Body Paragraphs */}
+              <div
                 className={cn(
-                  'font-serif text-base italic leading-relaxed',
-                  isOrange ? 'text-[#faf4ee]/90' : 'text-[#8d6b4f]',
+                  'mt-8 sm:mt-10 space-y-5 text-sm sm:text-base md:text-[1.05rem] leading-[1.75]',
+                  isOrange ? 'text-[#faf4ee]/85' : 'text-[#6d4a32]',
                 )}
               >
-                &ldquo;I believe that AI is not just a tool, but a partner in creating scalable, efficient, and intelligent systems that can truly make a difference in how we interact with technology.&rdquo;
-              </p>
-            </div>
-          </motion.div>
+                <p>
+                  I&apos;m a Computer Science Engineer and Full Stack Developer specializing in the MERN stack and AI-powered applications. I enjoy building responsive, scalable web applications and exploring how AI can enhance real-world user experiences.
+                </p>
+                <p>
+                  I have worked on multiple projects involving modern technologies like{' '}
+                  <strong className={cn('font-semibold', isOrange ? 'text-[#faf4ee]' : 'text-[#3e1a0a]')}>
+                    React
+                  </strong>
+                  ,{' '}
+                  <strong className={cn('font-semibold', isOrange ? 'text-[#faf4ee]' : 'text-[#3e1a0a]')}>
+                    Node.js
+                  </strong>
+                  , and LLM-based tools such as{' '}
+                  <strong className={cn('font-semibold', isOrange ? 'text-[#faf4ee]' : 'text-[#3e1a0a]')}>
+                    LangChain
+                  </strong>
+                  . I am passionate about learning, problem-solving, and continuously improving my skills to build efficient and impactful solutions.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Right Column: AI Quote & Author Card Container */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+              className="w-full"
+            >
+              <div
+                className={cn(
+                  'relative rounded-[28px] sm:rounded-[32px] border p-8 sm:p-10 md:p-12 lg:p-12 xl:p-14 transition-all',
+                  isOrange
+                    ? 'border-[#faf4ee]/20 bg-black/[0.08] shadow-[0_12px_36px_rgba(0,0,0,0.12)]'
+                    : 'border-[rgba(62,26,10,0.12)] bg-[#faf4ee] shadow-sm',
+                )}
+              >
+                <blockquote
+                  className={cn(
+                    'font-serif text-[clamp(1.5rem,2.4vw,2.2rem)] font-normal italic leading-[1.36] tracking-[-0.01em]',
+                    isOrange ? 'text-[#faf4ee]' : 'text-[#3e1a0a]',
+                  )}
+                >
+                  &ldquo;I believe that AI is not just a tool, but a partner in creating scalable, efficient, and intelligent systems that can truly make a difference in how we interact with technology.&rdquo;
+                </blockquote>
+
+                <div className="mt-8 sm:mt-10 flex items-center gap-4">
+                  <div
+                    className={cn(
+                      'flex h-12 w-12 sm:h-13 sm:w-13 shrink-0 items-center justify-center rounded-full border font-mono text-xs sm:text-sm font-semibold tracking-wider transition-colors',
+                      isOrange
+                        ? 'border-[#faf4ee]/40 text-[#faf4ee]'
+                        : 'border-[#3e1a0a]/30 text-[#3e1a0a]',
+                    )}
+                    aria-hidden="true"
+                  >
+                    SK
+                  </div>
+                  <div>
+                    <h3
+                      className={cn(
+                        'text-base sm:text-lg font-semibold tracking-tight',
+                        isOrange ? 'text-[#faf4ee]' : 'text-[#3e1a0a]',
+                      )}
+                    >
+                      Siddharth Kumar Rai
+                    </h3>
+                    <p
+                      className={cn(
+                        'font-mono text-[0.7rem] sm:text-[0.75rem] uppercase tracking-[0.1em]',
+                        isOrange ? 'text-[#faf4ee]/70' : 'text-[#8d6b4f]',
+                      )}
+                    >
+                      Full Stack &amp; AI Engineer
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </ParallaxSection>
     </section>
   );
 };
+
 
 

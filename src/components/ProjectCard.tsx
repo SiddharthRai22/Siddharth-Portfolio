@@ -14,7 +14,7 @@ export const ProjectCard = ({ project, index, active = false, variant = 'default
       <article className="transition-opacity duration-300">
         {project.images?.[0] ? (
           <div className={`relative mb-8 aspect-[16/9] overflow-hidden rounded-[20px] border lg:hidden ${isOrange ? 'border-[#faf4ee]/20 bg-[#faf4ee]/10' : 'border-[rgba(62,26,10,0.08)] bg-[#faf4ee]'}`}>
-            <Image src={project.images[0]} alt={`${project.title} interface`} fill sizes="100vw" className="object-contain" priority={index === 0} />
+            <Image src={project.images[0]} alt={`${project.title} interface`} fill sizes="100vw" className="h-full w-full object-cover object-top" priority={index === 0} />
           </div>
         ) : null}
 

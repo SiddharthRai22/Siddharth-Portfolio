@@ -11,11 +11,27 @@ function ScrollHandler() {
     if (hash) {
       const timer = setTimeout(() => {
         const id = hash.replace('#', '');
-        const element = document.getElementById(id) || (id === 'projects' ? document.getElementById('work') : id === 'work' ? document.getElementById('projects') : null);
+        const element =
+          document.getElementById(id) ||
+          (id === 'projects' ? document.getElementById('work') : id === 'work' ? document.getElementById('projects') : null);
+
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+          if (id === 'hero') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          } else {
+            const nav = document.querySelector('header');
+            const navHeight = nav ? nav.offsetHeight : 70;
+            const targetPosition = Math.max(
+              0,
+              element.getBoundingClientRect().top + window.scrollY - navHeight + 2
+            );
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth',
+            });
+          }
         }
-      }, 50);
+      }, 100);
       return () => clearTimeout(timer);
     } else {
       window.scrollTo(0, 0);

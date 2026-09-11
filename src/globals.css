@@ -127,6 +127,12 @@ button {
   text-wrap: balance;
 }
 
+.font-lining {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-variant-numeric: lining-nums tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}
+
 .perspective-1000 {
   perspective: 1000px;
 }

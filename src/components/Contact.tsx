@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { Image } from '@/components/Image';
 import { motion } from 'motion/react';
-import { ArrowUpRight, Copy, Check, Phone } from 'lucide-react';
+import { Mail, Phone, Copy, Check, Github, Linkedin } from 'lucide-react';
 import { ParallaxSection } from './ParallaxSection';
 import rightBranch from '@/assets/images/right_branch.png';
 import { useSectionTheme, SectionTheme } from './SectionContext';
@@ -33,11 +33,11 @@ export const Contact = ({ theme: explicitTheme }: { theme?: SectionTheme } = {})
           : 'border-t border-[rgba(62,26,10,0.08)] bg-[#f7ede0] text-[#3e1a0a]',
       )}
     >
-      {/* right_branch */}
+      {/* Decorative Autumn Leaves Branch on the right, matching reference image */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute right-0 top-1/2 hidden h-[520px] w-[360px] -translate-y-1/2 lg:block xl:h-[600px] xl:w-[420px]"
-        style={{ right: -12 }}
+        className="pointer-events-none absolute right-0 top-1/2 hidden h-[660px] w-[460px] -translate-y-1/2 lg:block xl:h-[760px] xl:w-[540px]"
+        style={{ right: -24 }}
       >
         <Image
           src={rightBranch}
@@ -45,16 +45,19 @@ export const Contact = ({ theme: explicitTheme }: { theme?: SectionTheme } = {})
           fill
           className={cn(
             'object-contain object-right',
-            isOrange && 'opacity-60',
+            isOrange ? 'opacity-90' : 'opacity-70',
           )}
-          sizes="420px"
+          sizes="(min-width: 1280px) 540px, 460px"
         />
       </div>
+
+      {/* Mobile/Tablet branch accents */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 lg:hidden">
-        <div className="absolute right-0 top-[8%] w-[180px] opacity-[0.24] sm:w-[220px] md:w-[260px]">
+        <div className="absolute -right-8 top-12 w-[220px] opacity-[0.35] sm:w-[280px]">
           <Image src={rightBranch} alt="" width={399} height={600} className="h-auto w-full object-contain object-right" />
         </div>
       </div>
+
       <ParallaxSection className="section-shell relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -62,148 +65,223 @@ export const Contact = ({ theme: explicitTheme }: { theme?: SectionTheme } = {})
           viewport={{ once: true }}
           className="pb-24 md:pb-36"
         >
-          <div className="flex flex-wrap items-center justify-between gap-4">
+          {/* Main Content Column */}
+          <div className="mx-auto max-w-[680px]">
+            {/* Header: • GET IN TOUCH & Let's Connect */}
+            <div>
+              <div
+                className={cn(
+                  'flex items-center gap-2 font-mono text-[0.7rem] sm:text-[0.75rem] uppercase tracking-[0.18em]',
+                  isOrange ? 'text-[#faf4ee]/80' : 'text-[#8d6b4f]',
+                )}
+              >
+                <span
+                  className={cn(
+                    'inline-block h-1.5 w-1.5 rounded-full',
+                    isOrange ? 'bg-[#faf4ee]' : 'bg-[#b45309]',
+                  )}
+                  aria-hidden="true"
+                />
+                <span>GET IN TOUCH</span>
+              </div>
+
+              <h2
+                className={cn(
+                  'mt-3 font-serif text-[clamp(2.75rem,7vw,5.5rem)] font-normal leading-[1.04] tracking-[-0.01em]',
+                  isOrange ? 'text-[#faf4ee]' : 'text-[#3e1a0a]',
+                )}
+              >
+                Let&apos;s Connect
+              </h2>
+            </div>
+
+            {/* Subtitle / Description Paragraph */}
             <p
               className={cn(
-                'system-label',
-                isOrange &&
-                  'system-label--on-orange !text-[#faf4ee] [&::before]:!bg-[#faf4ee] [&::before]:!shadow-[0_0_0.7rem_rgba(250,244,238,0.6)]',
+                'mx-auto mt-7 max-w-xl text-center text-base sm:text-lg leading-relaxed font-normal',
+                isOrange ? 'text-[#faf4ee]/85' : 'text-[#6d4a32]',
               )}
             >
-              Let’s begin
+              I&apos;m currently open to new opportunities. If you&apos;d like to discuss a
+              role, collaboration, or explore how we can work together, feel free
+              to get in touch.
             </p>
+
+            {/* Glassmorphic Contact Information Card */}
             <div
               className={cn(
-                'flex items-center gap-2 font-mono text-[0.65rem] uppercase tracking-[0.12em]',
-                isOrange ? 'text-[#faf4ee]/80' : 'text-[#8d6b4f]',
+                'mt-10 sm:mt-12 rounded-[24px] sm:rounded-[28px] border p-6 sm:p-9 md:p-10 shadow-2xl backdrop-blur-md transition-all',
+                isOrange
+                  ? 'border-[#faf4ee]/20 bg-[#3e1a0a]/15 text-[#faf4ee]'
+                  : 'border-[rgba(62,26,10,0.12)] bg-[#faf4ee] text-[#3e1a0a]',
               )}
             >
-              <span
+              {/* Card Title */}
+              <h3
                 className={cn(
-                  'h-2 w-2 rounded-full',
-                  isOrange ? 'bg-[#faf4ee] shadow-[0_0_12px_rgba(250,244,238,0.8)]' : 'bg-[#b45309] shadow-[0_0_12px_rgba(180,83,9,0.45)]',
+                  'font-serif text-2xl sm:text-[1.75rem] font-normal tracking-[-0.01em]',
+                  isOrange ? 'text-[#faf4ee]' : 'text-[#3e1a0a]',
                 )}
-                aria-hidden="true"
+              >
+                Contact Information
+              </h3>
+
+              {/* Card Divider */}
+              <div
+                className={cn(
+                  'mt-5 mb-7 h-px w-full',
+                  isOrange ? 'bg-[#faf4ee]/15' : 'bg-[rgba(62,26,10,0.1)]',
+                )}
               />
-              <span>Available for new opportunities</span>
+
+              {/* Rows */}
+              <div className="space-y-6 sm:space-y-7">
+                {/* Email Row */}
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex items-center gap-4 min-w-0">
+                    <div
+                      className={cn(
+                        'flex h-11 w-11 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-xl border transition-colors',
+                        isOrange
+                          ? 'border-[#faf4ee]/15 bg-[#faf4ee]/10 text-[#faf4ee]'
+                          : 'border-[rgba(62,26,10,0.1)] bg-[#f7ede0] text-[#b45309]',
+                      )}
+                    >
+                      <Mail className="h-5 w-5" />
+                    </div>
+                    <div className="min-w-0">
+                      <p
+                        className={cn(
+                          'font-mono text-[0.65rem] uppercase tracking-[0.14em]',
+                          isOrange ? 'text-[#faf4ee]/70' : 'text-[#8d6b4f]',
+                        )}
+                      >
+                        EMAIL
+                      </p>
+                      <a
+                        href={`mailto:${email}?subject=Project Inquiry`}
+                        className={cn(
+                          'block truncate font-lining text-sm sm:text-base md:text-lg font-medium tracking-tight transition-colors',
+                          isOrange ? 'text-[#faf4ee] hover:text-[#faf4ee]/80' : 'text-[#3e1a0a] hover:text-[#b45309]',
+                        )}
+                      >
+                        {email}
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Copy Button */}
+                  <div className="relative shrink-0">
+                    <button
+                      type="button"
+                      onClick={copyEmail}
+                      aria-label="Copy email address"
+                      title={copied ? 'Copied to clipboard' : 'Copy email address'}
+                      className={cn(
+                        'flex h-10 w-10 items-center justify-center rounded-xl border transition-all cursor-pointer hover:scale-105 active:scale-95',
+                        isOrange
+                          ? 'border-[#faf4ee]/15 bg-[#faf4ee]/10 text-[#faf4ee] hover:bg-[#faf4ee]/20'
+                          : 'border-[rgba(62,26,10,0.12)] bg-[#f7ede0] text-[#3e1a0a] hover:border-[#b45309] hover:text-[#b45309]',
+                      )}
+                    >
+                      {copied ? <Check className="h-4 w-4 text-emerald-400" /> : <Copy className="h-4 w-4" />}
+                    </button>
+                    {copied && (
+                      <span className="absolute -top-7 right-0 whitespace-nowrap rounded-md bg-[#3e1a0a] px-2 py-0.5 font-mono text-[0.6rem] text-[#faf4ee] shadow-sm">
+                        Copied!
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                {/* Phone Row */}
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex items-center gap-4 min-w-0">
+                    <div
+                      className={cn(
+                        'flex h-11 w-11 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-xl border transition-colors',
+                        isOrange
+                          ? 'border-[#faf4ee]/15 bg-[#faf4ee]/10 text-[#faf4ee]'
+                          : 'border-[rgba(62,26,10,0.1)] bg-[#f7ede0] text-[#b45309]',
+                      )}
+                    >
+                      <Phone className="h-5 w-5" />
+                    </div>
+                    <div className="min-w-0">
+                      <p
+                        className={cn(
+                          'font-mono text-[0.65rem] uppercase tracking-[0.14em]',
+                          isOrange ? 'text-[#faf4ee]/70' : 'text-[#8d6b4f]',
+                        )}
+                      >
+                        PHONE
+                      </p>
+                      <a
+                        href={`tel:${phone}`}
+                        className={cn(
+                          'block truncate font-lining text-sm sm:text-base md:text-lg font-medium tracking-tight transition-colors',
+                          isOrange ? 'text-[#faf4ee] hover:text-[#faf4ee]/80' : 'text-[#3e1a0a] hover:text-[#b45309]',
+                        )}
+                      >
+                        {phone}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Social Links Row */}
+                <div className="flex items-center gap-3 pt-2">
+                  <a
+                    href="https://github.com/SiddharthRai22"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="GitHub Profile"
+                    title="GitHub Profile"
+                    className={cn(
+                      'flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-xl border transition-all hover:scale-105 active:scale-95',
+                      isOrange
+                        ? 'border-[#faf4ee]/15 bg-[#faf4ee]/10 text-[#faf4ee] hover:bg-[#faf4ee]/20'
+                        : 'border-[rgba(62,26,10,0.12)] bg-[#f7ede0] text-[#3e1a0a] hover:border-[#b45309] hover:text-[#b45309]',
+                    )}
+                  >
+                    <Github className="h-5 w-5" />
+                  </a>
+
+                  <a
+                    href="http://www.linkedin.com/in/iam-siddharth"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="LinkedIn Profile"
+                    title="LinkedIn Profile"
+                    className={cn(
+                      'flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-xl border transition-all hover:scale-105 active:scale-95',
+                      isOrange
+                        ? 'border-[#faf4ee]/15 bg-[#faf4ee]/10 text-[#faf4ee] hover:bg-[#faf4ee]/20'
+                        : 'border-[rgba(62,26,10,0.12)] bg-[#f7ede0] text-[#3e1a0a] hover:border-[#b45309] hover:text-[#b45309]',
+                    )}
+                  >
+                    <Linkedin className="h-5 w-5" />
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
-
-          <h2
-            className={cn(
-              'mt-16 max-w-5xl text-balance text-[clamp(3.2rem,9vw,9rem)] font-semibold leading-[0.84] tracking-[-0.02em]',
-              isOrange ? 'text-[#faf4ee]' : 'text-[#3e1a0a]',
-            )}
-          >
-            Let&apos;s build what comes next.
-          </h2>
-
-          <p
-            className={cn(
-              'mt-10 max-w-xl text-base leading-relaxed md:text-xl',
-              isOrange ? 'text-[#faf4ee]/85' : 'text-[#6d4a32]',
-            )}
-          >
-            I’m currently open to new opportunities. If you’d like to discuss a role, collaboration, or explore how we can work together, feel free to get in touch.
-          </p>
-
-          <div
-            className={cn(
-              'mt-14 rounded-[24px] border px-6 py-6 md:flex md:items-center md:justify-between md:gap-8',
-              isOrange
-                ? 'border-[#faf4ee]/20 bg-[#faf4ee]/10'
-                : 'border-[rgba(62,26,10,0.08)] bg-[#faf4ee]',
-            )}
-          >
-            <a 
-              href={`mailto:${email}?subject=Project Inquiry`}
-              className={cn(
-                'group flex min-w-0 items-center gap-3 text-[clamp(1.2rem,3.4vw,3.2rem)] font-semibold transition-colors',
-                isOrange ? 'text-[#faf4ee] hover:text-[#faf4ee]/80' : 'text-[#3e1a0a] hover:text-[#b45309]',
-              )}
-            >
-              <span className="min-w-0 break-all">{email}</span>
-              <ArrowUpRight className="h-[0.8em] w-[0.8em] shrink-0 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
-            </a>
-
-            <div className="mt-5 flex items-center gap-3 md:mt-0">
-              <button
-                type="button"
-                onClick={copyEmail}
-                className={cn(
-                  'inline-flex min-h-11 shrink-0 items-center gap-2 rounded-full border px-4 font-mono text-[0.65rem] uppercase tracking-[0.1em] transition-colors',
-                  isOrange
-                    ? 'border-[#faf4ee]/30 bg-[#faf4ee]/15 text-[#faf4ee] hover:bg-[#faf4ee] hover:text-[#b45309]'
-                    : 'border-[rgba(62,26,10,0.15)] bg-[#faf4ee] text-[#8d6b4f] hover:border-[#b45309] hover:text-[#b45309]',
-                )}
-              >
-                {copied ? <Check className="h-4 w-4 text-green-500" /> : <Copy className="h-4 w-4" />}
-                {copied ? 'Copied' : 'Copy address'}
-              </button>
-              <a
-                href={`tel:${phone}`}
-                className={cn(
-                  'inline-flex min-h-11 shrink-0 items-center gap-2 rounded-full border px-4 font-mono text-[0.65rem] uppercase tracking-[0.1em] transition-colors',
-                  isOrange
-                    ? 'border-[#faf4ee]/30 bg-[#faf4ee]/15 text-[#faf4ee] hover:bg-[#faf4ee] hover:text-[#b45309]'
-                    : 'border-[rgba(62,26,10,0.15)] bg-[#faf4ee] text-[#8d6b4f] hover:border-[#b45309] hover:text-[#b45309]',
-                )}
-              >
-                <Phone className="h-3.5 w-3.5" />
-                <span>{phone}</span>
-              </a>
-            </div>
-            <span className="sr-only" aria-live="polite">{copied ? 'Email address copied to clipboard' : ''}</span>
           </div>
         </motion.div>
 
+        {/* Footer */}
         <footer
           className={cn(
-            'flex flex-col gap-5 border-t py-7 font-mono text-[0.65rem] uppercase tracking-[0.1em] md:flex-row md:items-center md:justify-between',
+            'flex items-center justify-center border-t py-7 font-mono text-[0.65rem] uppercase tracking-[0.1em] text-center',
             isOrange
               ? 'border-[#faf4ee]/20 text-[#faf4ee]/75'
               : 'border-[rgba(62,26,10,0.08)] text-[#8d6b4f]',
           )}
         >
           <p>© 2026 Siddharth Kumar Rai. All rights reserved.</p>
-          <div className="flex flex-wrap gap-6">
-            <a
-              href="https://github.com/SiddharthRai22"
-              target="_blank"
-              rel="noreferrer"
-              className={cn(
-                'transition-colors',
-                isOrange ? 'hover:text-[#faf4ee]' : 'hover:text-[#b45309]',
-              )}
-            >
-              GitHub
-            </a>
-            <a
-              href="http://www.linkedin.com/in/iam-siddharth"
-              target="_blank"
-              rel="noreferrer"
-              className={cn(
-                'transition-colors',
-                isOrange ? 'hover:text-[#faf4ee]' : 'hover:text-[#b45309]',
-              )}
-            >
-              LinkedIn
-            </a>
-            <a
-              href="https://drive.google.com/file/d/1RQhAn6YS4SE7cLMfY3zjGpbz84Uv1hls/view?usp=sharing"
-              target="_blank"
-              rel="noreferrer"
-              className={cn(
-                'transition-colors',
-                isOrange ? 'hover:text-[#faf4ee]' : 'hover:text-[#b45309]',
-              )}
-            >
-              Resume
-            </a>
-          </div>
         </footer>
       </ParallaxSection>
     </section>
   );
 };
+
 

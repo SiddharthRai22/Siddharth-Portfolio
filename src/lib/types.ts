@@ -1,6 +1,6 @@
 export type StaticImageData = string | { src: string; width?: number; height?: number };
 
-export type ProjectCategory = 'Web' | 'Mobile' | 'AI';
+export type ProjectCategory = 'Web' | 'AI';
 
 export interface Project {
   id: string;
