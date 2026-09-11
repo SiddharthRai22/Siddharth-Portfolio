@@ -4,7 +4,6 @@ import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
 import { Projects } from "@/components/Projects";
 import { Skills } from "@/components/Skills";
-import { Reviews } from "@/components/Reviews";
 import { Contact } from "@/components/Contact";
 import { FallingLeavesScene } from "@/components/FallingLeavesScene";
 import { LoadingScreen } from "@/components/LoadingScreen";
@@ -18,18 +17,16 @@ interface SectionDefinition {
 // Dynamic ordered section registry:
 // The alternating color theme is automatically calculated by SectionProvider
 // based on the section's position (index) in this list:
-// Section 1 (index 0): Hero      -> Light/cream
-// Section 2 (index 1): About     -> Orange/warm
-// Section 3 (index 2): Projects  -> Light/cream
-// Section 4 (index 3): Skills    -> Orange/warm
-// Section 5 (index 4): Education -> Light/cream
-// Section 6 (index 5): Contact   -> Orange/warm
+// Section 1 (index 0): Hero     -> Light/cream
+// Section 2 (index 1): About    -> Orange/warm
+// Section 3 (index 2): Projects -> Light/cream
+// Section 4 (index 3): Skills   -> Orange/warm
+// Section 5 (index 4): Contact  -> Light/cream
 const SECTIONS: SectionDefinition[] = [
   { id: 'hero', render: ({ isReady }) => <Hero isReady={isReady} /> },
   { id: 'about', render: () => <About /> },
   { id: 'projects', render: () => <Projects /> },
   { id: 'skills', render: () => <Skills /> },
-  { id: 'education', render: () => <Reviews /> },
   { id: 'contact', render: () => <Contact /> },
 ];
 

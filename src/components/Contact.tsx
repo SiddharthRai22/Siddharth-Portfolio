@@ -67,38 +67,20 @@ export const Contact = ({ theme: explicitTheme }: { theme?: SectionTheme } = {})
         >
           {/* Main Content Column */}
           <div className="mx-auto max-w-[680px]">
-            {/* Header: • GET IN TOUCH & Let's Connect */}
-            <div>
-              <div
-                className={cn(
-                  'flex items-center gap-2 font-mono text-[0.7rem] sm:text-[0.75rem] uppercase tracking-[0.18em]',
-                  isOrange ? 'text-[#faf4ee]/80' : 'text-[#8d6b4f]',
-                )}
-              >
-                <span
-                  className={cn(
-                    'inline-block h-1.5 w-1.5 rounded-full',
-                    isOrange ? 'bg-[#faf4ee]' : 'bg-[#b45309]',
-                  )}
-                  aria-hidden="true"
-                />
-                <span>GET IN TOUCH</span>
-              </div>
-
-              <h2
-                className={cn(
-                  'mt-3 font-serif text-[clamp(2.75rem,7vw,5.5rem)] font-normal leading-[1.04] tracking-[-0.01em]',
-                  isOrange ? 'text-[#faf4ee]' : 'text-[#3e1a0a]',
-                )}
-              >
-                Let&apos;s Connect
-              </h2>
-            </div>
+            {/* Header: Let's Connect */}
+            <h2
+              className={cn(
+                'text-center font-serif text-[clamp(2.75rem,7vw,5.5rem)] font-normal leading-[1.04] tracking-[-0.01em]',
+                isOrange ? 'text-[#faf4ee]' : 'text-[#3e1a0a]',
+              )}
+            >
+              Let&apos;s Connect
+            </h2>
 
             {/* Subtitle / Description Paragraph */}
             <p
               className={cn(
-                'mx-auto mt-7 max-w-xl text-center text-base sm:text-lg leading-relaxed font-normal',
+                'mx-auto mt-6 max-w-xl text-center text-base sm:text-lg leading-relaxed font-normal',
                 isOrange ? 'text-[#faf4ee]/85' : 'text-[#6d4a32]',
               )}
             >

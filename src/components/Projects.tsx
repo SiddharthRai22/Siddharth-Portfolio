@@ -120,23 +120,13 @@ export const Projects = ({ theme: explicitTheme }: { theme?: SectionTheme } = {}
           )}
         >
           <div>
-            <p
-              className={cn(
-                'system-label mb-5',
-                isOrange
-                  ? 'system-label--on-orange !text-[#faf4ee] [&::before]:!bg-[#faf4ee] [&::before]:!shadow-[0_0_0.7rem_rgba(250,244,238,0.6)]'
-                  : '!text-[#8d6b4f] [&::before]:!bg-[#b45309] [&::before]:!shadow-[0_0_0.7rem_rgba(180,83,9,0.38)]',
-              )}
-            >
-              Selected Works
-            </p>
             <h2
               className={cn(
                 'text-balance text-[clamp(3rem,7vw,7rem)] font-semibold leading-[0.88] tracking-[-0.02em]',
                 isOrange ? 'text-[#faf4ee]' : 'text-[#3e1a0a]',
               )}
             >
-              Work in motion.
+              My Projects
             </h2>
           </div>
           <fieldset className="flex flex-wrap gap-2">

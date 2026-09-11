@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, Github, Linkedin } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-const NAV_ITEMS = ['About', 'Projects', 'Skills', 'Education', 'Contact'];
+const NAV_ITEMS = ['About', 'Projects', 'Skills', 'Contact'];
 
 export const Navigation = ({ isReady = true }: { isReady?: boolean } = {}) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -50,7 +50,7 @@ export const Navigation = ({ isReady = true }: { isReady?: boolean } = {}) => {
 
       // 3. Scan sections in descending order with an optical focal line (140px below top)
       const focalPoint = scrollY + 140;
-      const sectionIds = ['contact', 'education', 'skills', 'projects', 'about'];
+      const sectionIds = ['contact', 'skills', 'projects', 'about'];
 
       for (const id of sectionIds) {
         const el =

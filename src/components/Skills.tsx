@@ -78,23 +78,13 @@ export const Skills = ({ theme: explicitTheme }: { theme?: SectionTheme } = {}) 
       <ParallaxSection className="section-shell">
         <div className="mb-12 grid gap-8 lg:grid-cols-2 lg:items-end">
           <div>
-            <p
-              className={cn(
-                'system-label mb-5',
-                isOrange
-                  ? 'system-label--on-orange !text-[#faf4ee] [&::before]:!bg-[#faf4ee] [&::before]:!shadow-[0_0_0.7rem_rgba(250,244,238,0.6)]'
-                  : '!text-[#8d6b4f] [&::before]:!bg-[#b45309] [&::before]:!shadow-[0_0_0.7rem_rgba(180,83,9,0.38)]',
-              )}
-            >
-              Craft &amp; Stack
-            </p>
             <h2
               className={cn(
                 'text-[clamp(3rem,7vw,7rem)] font-semibold leading-[0.88] tracking-[-0.02em]',
                 isOrange ? 'text-[#faf4ee]' : 'text-[#3e1a0a]',
               )}
             >
-              Tools, selected.
+              My Tech Stack
             </h2>
           </div>
           <p
@@ -103,7 +93,7 @@ export const Skills = ({ theme: explicitTheme }: { theme?: SectionTheme } = {}) 
               isOrange ? 'text-[#faf4ee]/85' : 'text-[#6d4a32]',
             )}
           >
-            A clear, curated stack for robust web solutions, agentic AI workflows, and modern digital architectures.
+            Tools and Technologies I use for full-stack development and AI application development.
           </p>
         </div>
 
