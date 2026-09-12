@@ -96,7 +96,7 @@ export const CaseStudyPage: React.FC = () => {
                     rel="noreferrer"
                     className="group inline-flex min-h-12 items-center gap-2 rounded-full border border-[rgba(62,26,10,0.15)] bg-[#faf4ee] px-6 text-sm font-semibold text-[#3e1a0a] transition-colors hover:border-[#b45309] hover:text-[#b45309]"
                   >
-                    View source <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    GitHub <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                   </a>
                 ) : null}
               </div>

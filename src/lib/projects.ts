@@ -7,10 +7,7 @@ import myTrain4 from '@/assets/projects/my-train/my-train-4.png';
 import myTrain5 from '@/assets/projects/my-train/my-train-5.png';
 import myTrain6 from '@/assets/projects/my-train/my-train-6.png';
 
-import deepResearch1 from '@/assets/projects/deep-research/researchmind.jpg';
-
-import collegeAi1 from '@/assets/projects/college-ai/college-ai-assistant.png';
-import collegeAi2 from '@/assets/projects/college-ai/college-ai.jpg';
+import collegeAi1 from '@/assets/projects/college-ai/college-ai-assistant-1.png';
 
 import aiWebsite1 from '@/assets/projects/ai-website-generator/ai-website-generator-1.png';
 import aiWebsite2 from '@/assets/projects/ai-website-generator/ai-website-generator-2.png';
@@ -19,8 +16,8 @@ import aiWebsite4 from '@/assets/projects/ai-website-generator/ai-website-genera
 import aiWebsite5 from '@/assets/projects/ai-website-generator/ai-website-generator-5.jpeg';
 import aiWebsite6 from '@/assets/projects/ai-website-generator/ai-website-generator-6.jpeg';
 
-import finance1 from '@/assets/projects/finance-dashboard/finance-dashboard.png';
-import finance2 from '@/assets/projects/finance-dashboard/finance-web-1.png';
+import finance1 from '@/assets/projects/finance-dashboard/finance-dashboard-1.png';
+import finance2 from '@/assets/projects/finance-dashboard/finance-dashboard-2.png';
 
 export const PROJECTS: Project[] = [
   {
@@ -79,7 +76,7 @@ export const PROJECTS: Project[] = [
       'Automated the end-to-end research pipeline, generating comprehensive, well-structured analytical reports with high factual reliability.',
     fullDescription:
       'Deep Research AI Agent is an autonomous multi-agent platform that conducts in-depth web investigations. It coordinates agents across browsing, data filtering, multi-source synthesis, and report evaluation to deliver ready-to-read research briefs.',
-    images: [deepResearch1],
+    images: [],
     overviewData: {
       role: 'AI Engineer',
       platform: 'Web & CLI',
@@ -113,7 +110,8 @@ export const PROJECTS: Project[] = [
       'Created an instant, context-aware student support system that delivers grounded, personalized answers to complex college administrative questions.',
     fullDescription:
       'College AI Assistant is an institutional AI assistant powered by Agentic RAG. It routes queries to targeted document stores, ensuring students get verified information on courses, fees, and administrative procedures in seconds.',
-    images: [collegeAi1, collegeAi2],
+    images: [collegeAi1],
+    galleryImages: [collegeAi1],
     overviewData: {
       role: 'AI Engineer',
       platform: 'Web & CLI',
@@ -184,6 +182,7 @@ export const PROJECTS: Project[] = [
     fullDescription:
       'Finance Dashboard UI is an elegant user interface created for personal and business wealth monitoring. It emphasizes clear visual hierarchy, intuitive data charts, and seamless navigation across financial insights.',
     images: [finance1, finance2],
+    galleryImages: [finance1, finance2],
     overviewData: {
       role: 'Frontend Developer',
       platform: 'Web',

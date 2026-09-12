@@ -33,10 +33,18 @@ export const ProjectCard = ({ project, index, active = false, variant = 'default
             <p className={`mb-2 font-mono text-[0.6rem] uppercase tracking-[0.14em] ${isOrange ? 'text-[#faf4ee]/70' : 'text-[#8d6b4f]'}`}>Outcome</p>
             <p className={`max-w-md font-mono text-xs leading-relaxed ${isOrange ? 'text-[#faf4ee]' : 'text-[#3e1a0a]'}`}>{project.metrics}</p>
           </div>
-          <span className="group/btn inline-flex items-center gap-2 rounded-full bg-[#1c1917] py-1.5 pl-2 pr-4.5 text-sm font-medium text-[#faf4ee] shadow-sm transition-all duration-300 hover:bg-[#18181b]">
+          <span className={`group/btn inline-flex items-center gap-2 rounded-full py-1.5 pl-2 pr-4.5 text-sm font-medium shadow-sm transition-all duration-300 ${
+            isOrange
+              ? 'bg-[#faf4ee] text-[#b45309] hover:bg-[#3e1a0a] hover:text-[#faf4ee]'
+              : 'bg-[#b45309] text-[#faf4ee] hover:bg-[#3e1a0a]'
+          }`}>
             <span className="relative flex h-6 w-6 shrink-0 items-center justify-center">
-              <span className="h-2 w-2 rounded-full bg-[#faf4ee] translate-x-0.5 transition-all duration-300 group-hover/btn:scale-0 group-hover/btn:opacity-0" />
-              <span className="absolute inset-0 flex items-center justify-center rounded-full bg-[#faf4ee] text-[#1c1917] opacity-0 scale-50 transition-all duration-300 group-hover/btn:scale-100 group-hover/btn:opacity-100 shadow-sm">
+              <span className={`h-2 w-2 rounded-full translate-x-0.5 transition-all duration-300 group-hover/btn:scale-0 group-hover/btn:opacity-0 ${
+                isOrange ? 'bg-[#b45309]' : 'bg-[#faf4ee]'
+              }`} />
+              <span className={`absolute inset-0 flex items-center justify-center rounded-full opacity-0 scale-50 transition-all duration-300 group-hover/btn:scale-100 group-hover/btn:opacity-100 shadow-sm ${
+                isOrange ? 'bg-[#faf4ee] text-[#3e1a0a]' : 'bg-[#faf4ee] text-[#b45309]'
+              }`}>
                 <ArrowRight className="h-3.5 w-3.5 stroke-[2.2]" />
               </span>
             </span>
