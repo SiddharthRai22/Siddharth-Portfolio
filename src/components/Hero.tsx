@@ -88,9 +88,10 @@ export const Hero = ({
               animate={{ opacity: isReady ? 1 : 0, y: isReady ? 0 : 10 }}
               transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1], delay: isReady ? 0.25 : 0 }}
               className={cn(
-                'system-label mb-5',
-                isOrange &&
-                  'system-label--on-orange !text-[#faf4ee] [&::before]:!bg-[#faf4ee] [&::before]:!shadow-[0_0_0.7rem_rgba(250,244,238,0.6)]',
+                'system-label mb-5 font-semibold tracking-[0.14em]',
+                isOrange
+                  ? 'system-label--on-orange !text-[#faf4ee] [&::before]:!bg-[#faf4ee] [&::before]:!shadow-[0_0_0.7rem_rgba(250,244,238,0.6)]'
+                  : '!text-[#78350f] [&::before]:!bg-[#b45309]',
               )}
             >
               Full Stack Developer · AI Engineer
@@ -102,11 +103,11 @@ export const Hero = ({
               transition={{ delay: isReady ? 0.38 : 0, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
               className={cn(
                 'text-balance font-serif text-[clamp(3.4rem,7.2vw,6.4rem)] font-bold leading-[0.92] tracking-[-0.03em]',
-                isOrange ? 'text-[#faf4ee]' : 'text-[#3e1a0a]',
+                isOrange ? 'text-[#faf4ee]' : 'text-[#2a1005]',
               )}
             >
               Siddharth <br />
-              <span className={isOrange ? 'text-[#faf4ee]/90 italic' : 'text-[#b45309]'}>
+              <span className={isOrange ? 'text-[#faf4ee] italic font-normal' : 'text-[#b45309]'}>
                 Kumar Rai
               </span>
             </motion.h1>
@@ -116,19 +117,19 @@ export const Hero = ({
               animate={{ opacity: isReady ? 1 : 0, y: isReady ? 0 : 14 }}
               transition={{ delay: isReady ? 0.52 : 0, duration: 0.75, ease: [0.25, 1, 0.5, 1] }}
               className={cn(
-                'mt-6 max-w-xl text-base leading-relaxed md:text-lg',
-                isOrange ? 'text-[#faf4ee]/85' : 'text-[#6d4a32]',
+                'mt-6 max-w-xl text-base font-medium leading-relaxed md:text-lg',
+                isOrange ? 'text-[#faf4ee]' : 'text-[#441a08]',
               )}
             >
               Full Stack Developer | AI Engineer. Building the future with{' '}
               <strong
-                className={cn('font-semibold', isOrange ? 'text-[#faf4ee]' : 'text-[#3e1a0a]')}
+                className={cn('font-bold', isOrange ? 'text-[#faf4ee] underline decoration-[#faf4ee]/40 underline-offset-4' : 'text-[#1e0b04] font-semibold')}
               >
                 MERN Stack
               </strong>{' '}
               and{' '}
               <strong
-                className={cn('font-semibold', isOrange ? 'text-[#faf4ee]' : 'text-[#3e1a0a]')}
+                className={cn('font-bold', isOrange ? 'text-[#faf4ee] underline decoration-[#faf4ee]/40 underline-offset-4' : 'text-[#1e0b04] font-semibold')}
               >
                 AI Intelligence
               </strong>
@@ -187,8 +188,8 @@ export const Hero = ({
                 className={cn(
                   'flex h-11 w-11 items-center justify-center rounded-full border transition-all duration-200 hover:scale-105',
                   isOrange
-                    ? 'border-[#faf4ee]/30 bg-[#faf4ee]/15 text-[#faf4ee] hover:border-[#faf4ee] hover:bg-[#faf4ee] hover:text-[#b45309]'
-                    : 'border-[rgba(62,26,10,0.15)] bg-[#faf4ee] text-[#8d6b4f] hover:border-[#b45309] hover:bg-[#b45309]/10 hover:text-[#b45309]',
+                    ? 'border-[#faf4ee]/40 bg-[#faf4ee]/15 text-[#faf4ee] hover:border-[#faf4ee] hover:bg-[#faf4ee] hover:text-[#b45309]'
+                    : 'border-[rgba(62,26,10,0.2)] bg-[#faf4ee] text-[#441a08] hover:border-[#b45309] hover:bg-[#b45309]/10 hover:text-[#b45309]',
                 )}
                 title="GitHub"
               >
@@ -202,8 +203,8 @@ export const Hero = ({
                 className={cn(
                   'flex h-11 w-11 items-center justify-center rounded-full border transition-all duration-200 hover:scale-105',
                   isOrange
-                    ? 'border-[#faf4ee]/30 bg-[#faf4ee]/15 text-[#faf4ee] hover:border-[#faf4ee] hover:bg-[#faf4ee] hover:text-[#b45309]'
-                    : 'border-[rgba(62,26,10,0.15)] bg-[#faf4ee] text-[#8d6b4f] hover:border-[#b45309] hover:bg-[#b45309]/10 hover:text-[#b45309]',
+                    ? 'border-[#faf4ee]/40 bg-[#faf4ee]/15 text-[#faf4ee] hover:border-[#faf4ee] hover:bg-[#faf4ee] hover:text-[#b45309]'
+                    : 'border-[rgba(62,26,10,0.2)] bg-[#faf4ee] text-[#441a08] hover:border-[#b45309] hover:bg-[#b45309]/10 hover:text-[#b45309]',
                 )}
                 title="LinkedIn"
               >
@@ -215,8 +216,8 @@ export const Hero = ({
                 className={cn(
                   'flex h-11 w-11 items-center justify-center rounded-full border transition-all duration-200 hover:scale-105',
                   isOrange
-                    ? 'border-[#faf4ee]/30 bg-[#faf4ee]/15 text-[#faf4ee] hover:border-[#faf4ee] hover:bg-[#faf4ee] hover:text-[#b45309]'
-                    : 'border-[rgba(62,26,10,0.15)] bg-[#faf4ee] text-[#8d6b4f] hover:border-[#b45309] hover:bg-[#b45309]/10 hover:text-[#b45309]',
+                    ? 'border-[#faf4ee]/40 bg-[#faf4ee]/15 text-[#faf4ee] hover:border-[#faf4ee] hover:bg-[#faf4ee] hover:text-[#b45309]'
+                    : 'border-[rgba(62,26,10,0.2)] bg-[#faf4ee] text-[#441a08] hover:border-[#b45309] hover:bg-[#b45309]/10 hover:text-[#b45309]',
                 )}
                 title="Email"
               >
@@ -228,8 +229,8 @@ export const Hero = ({
                 className={cn(
                   'flex h-11 w-11 items-center justify-center rounded-full border transition-all duration-200 hover:scale-105',
                   isOrange
-                    ? 'border-[#faf4ee]/30 bg-[#faf4ee]/15 text-[#faf4ee] hover:border-[#faf4ee] hover:bg-[#faf4ee] hover:text-[#b45309]'
-                    : 'border-[rgba(62,26,10,0.15)] bg-[#faf4ee] text-[#8d6b4f] hover:border-[#b45309] hover:bg-[#b45309]/10 hover:text-[#b45309]',
+                    ? 'border-[#faf4ee]/40 bg-[#faf4ee]/15 text-[#faf4ee] hover:border-[#faf4ee] hover:bg-[#faf4ee] hover:text-[#b45309]'
+                    : 'border-[rgba(62,26,10,0.2)] bg-[#faf4ee] text-[#441a08] hover:border-[#b45309] hover:bg-[#b45309]/10 hover:text-[#b45309]',
                 )}
                 title="Phone"
               >

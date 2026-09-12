@@ -18,20 +18,20 @@ export const ProjectCard = ({ project, index, active = false, variant = 'default
           </div>
         ) : null}
 
-        <div className={`flex items-center justify-between border-t pt-4 font-mono text-[0.65rem] uppercase tracking-[0.14em] transition-colors duration-300 ${isOrange ? (active ? 'border-[#faf4ee]' : 'border-[#faf4ee]/20') : (active ? 'border-[#b45309]' : 'border-[rgba(62,26,10,0.12)]')}`}>
-          <span className={isOrange ? 'text-[#faf4ee]' : (active ? 'text-[#b45309] font-bold' : 'text-[#b45309]')}>No. {String(index + 1).padStart(2, '0')}</span>
-          <span className={isOrange ? 'text-[#faf4ee]/80' : 'text-[#8d6b4f]'}>{Array.isArray(project.category) ? project.category.join(' + ') : project.category}</span>
+        <div className={`flex items-center justify-between border-t pt-4 font-mono text-[0.65rem] uppercase tracking-[0.14em] transition-colors duration-300 ${isOrange ? (active ? 'border-[#faf4ee]' : 'border-[#faf4ee]/30') : (active ? 'border-[#b45309]' : 'border-[rgba(62,26,10,0.15)]')}`}>
+          <span className={isOrange ? 'text-[#faf4ee] font-bold' : (active ? 'text-[#b45309] font-bold' : 'text-[#b45309] font-semibold')}>No. {String(index + 1).padStart(2, '0')}</span>
+          <span className={isOrange ? 'text-[#faf4ee] font-medium' : 'text-[#6e462d] font-medium'}>{Array.isArray(project.category) ? project.category.join(' + ') : project.category}</span>
         </div>
 
-        <h3 className={`mt-7 text-balance text-[clamp(2.2rem,5vw,4.8rem)] font-semibold leading-[1.05] tracking-[-0.01em] md:leading-[0.98] transition-colors ${isOrange ? 'text-[#faf4ee] group-hover:text-[#faf4ee]' : 'text-[#3e1a0a] group-hover:text-[#b45309]'}`}>
+        <h3 className={`mt-7 text-balance text-[clamp(2.2rem,5vw,4.8rem)] font-semibold leading-[1.05] tracking-[-0.01em] md:leading-[0.98] transition-colors ${isOrange ? 'text-[#faf4ee] group-hover:text-[#faf4ee]' : 'text-[#240e04] group-hover:text-[#b45309]'}`}>
           {project.title}
         </h3>
-        <p className={`mt-6 max-w-xl text-base leading-relaxed md:text-lg font-normal ${isOrange ? 'text-[#faf4ee]/90' : 'text-[#5a3822]'}`}>{project.description}</p>
+        <p className={`mt-6 max-w-xl text-base leading-relaxed md:text-lg font-normal ${isOrange ? 'text-[#faf4ee]' : 'text-[#441a08]'}`}>{project.description}</p>
 
         <div className="mt-8 flex flex-wrap items-end justify-between gap-6">
           <div>
-            <p className={`mb-2 font-mono text-[0.6rem] uppercase tracking-[0.14em] ${isOrange ? 'text-[#faf4ee]/70' : 'text-[#8d6b4f]'}`}>Outcome</p>
-            <p className={`max-w-md font-mono text-xs leading-relaxed ${isOrange ? 'text-[#faf4ee]' : 'text-[#3e1a0a]'}`}>{project.metrics}</p>
+            <p className={`mb-2 font-mono text-[0.65rem] font-semibold uppercase tracking-[0.14em] ${isOrange ? 'text-[#faf4ee]' : 'text-[#78350f]'}`}>Outcome</p>
+            <p className={`max-w-md font-mono text-xs font-medium leading-relaxed ${isOrange ? 'text-[#faf4ee]' : 'text-[#240e04]'}`}>{project.metrics}</p>
           </div>
           <span className={`group/btn inline-flex items-center gap-2 rounded-full py-1.5 pl-2 pr-4.5 text-sm font-medium shadow-sm transition-all duration-300 ${
             isOrange

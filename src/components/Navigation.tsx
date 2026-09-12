@@ -212,7 +212,7 @@ export const Navigation = ({ isReady = true }: { isReady?: boolean } = {}) => {
                     "relative rounded-full border px-3.5 py-1.5 font-mono text-[0.68rem] font-bold uppercase tracking-[0.12em] transition-all duration-200 cursor-pointer",
                     isActive
                       ? "border-[#b45309] bg-[#b45309] text-[#faf4ee] shadow-sm"
-                      : "border-transparent text-[#8d6b4f] hover:text-[#3e1a0a] hover:bg-[#3e1a0a]/5",
+                      : "border-transparent text-[#5c3822] hover:text-[#240e04] hover:bg-[#240e04]/5",
                   )}
                 >
                   {item}
@@ -227,7 +227,7 @@ export const Navigation = ({ isReady = true }: { isReady?: boolean } = {}) => {
                 href="https://github.com/SiddharthRai22"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-8 w-8 items-center justify-center rounded-full text-[#8d6b4f] transition-colors hover:bg-[#b45309]/10 hover:text-[#3e1a0a] cursor-pointer"
+                className="flex h-8 w-8 items-center justify-center rounded-full text-[#5c3822] transition-colors hover:bg-[#b45309]/10 hover:text-[#240e04] cursor-pointer"
                 aria-label="GitHub profile"
                 title="GitHub"
               >
@@ -237,7 +237,7 @@ export const Navigation = ({ isReady = true }: { isReady?: boolean } = {}) => {
                 href="https://www.linkedin.com/in/iam-siddharth"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-8 w-8 items-center justify-center rounded-full text-[#8d6b4f] transition-colors hover:bg-[#b45309]/10 hover:text-[#3e1a0a] cursor-pointer"
+                className="flex h-8 w-8 items-center justify-center rounded-full text-[#5c3822] transition-colors hover:bg-[#b45309]/10 hover:text-[#240e04] cursor-pointer"
                 aria-label="LinkedIn profile"
                 title="LinkedIn"
               >
@@ -286,7 +286,7 @@ export const Navigation = ({ isReady = true }: { isReady?: boolean } = {}) => {
                     <span>{item}</span>
                     <span className={cn(
                       "font-mono text-xs font-bold transition-colors",
-                      isActive ? "text-[#b45309]" : "text-[#8d6b4f] group-hover:text-[#b45309]"
+                      isActive ? "text-[#b45309]" : "text-[#6e462d] group-hover:text-[#b45309]"
                     )}>
                       0{index + 1}
                     </span>

@@ -81,7 +81,7 @@ export const Contact = ({ theme: explicitTheme }: { theme?: SectionTheme } = {})
             <p
               className={cn(
                 'mx-auto mt-6 max-w-xl text-center text-base sm:text-lg leading-relaxed font-normal',
-                isOrange ? 'text-[#faf4ee]/85' : 'text-[#6d4a32]',
+                isOrange ? 'text-[#faf4ee]' : 'text-[#441a08]',
               )}
             >
               I&apos;m currently open to new opportunities. If you&apos;d like to discuss a
@@ -134,8 +134,8 @@ export const Contact = ({ theme: explicitTheme }: { theme?: SectionTheme } = {})
                     <div className="min-w-0">
                       <p
                         className={cn(
-                          'font-mono text-[0.65rem] uppercase tracking-[0.14em]',
-                          isOrange ? 'text-[#faf4ee]/70' : 'text-[#8d6b4f]',
+                          'font-mono text-[0.65rem] font-semibold uppercase tracking-[0.14em]',
+                          isOrange ? 'text-[#faf4ee]' : 'text-[#78350f]',
                         )}
                       >
                         EMAIL
@@ -192,8 +192,8 @@ export const Contact = ({ theme: explicitTheme }: { theme?: SectionTheme } = {})
                     <div className="min-w-0">
                       <p
                         className={cn(
-                          'font-mono text-[0.65rem] uppercase tracking-[0.14em]',
-                          isOrange ? 'text-[#faf4ee]/70' : 'text-[#8d6b4f]',
+                          'font-mono text-[0.65rem] font-semibold uppercase tracking-[0.14em]',
+                          isOrange ? 'text-[#faf4ee]' : 'text-[#78350f]',
                         )}
                       >
                         PHONE
@@ -228,9 +228,8 @@ export const Contact = ({ theme: explicitTheme }: { theme?: SectionTheme } = {})
                   >
                     <Github className="h-5 w-5" />
                   </a>
-
                   <a
-                    href="http://www.linkedin.com/in/iam-siddharth"
+                    href="https://www.linkedin.com/in/iam-siddharth"
                     target="_blank"
                     rel="noreferrer"
                     aria-label="LinkedIn Profile"
@@ -253,10 +252,10 @@ export const Contact = ({ theme: explicitTheme }: { theme?: SectionTheme } = {})
         {/* Footer */}
         <footer
           className={cn(
-            'flex items-center justify-center border-t py-7 font-mono text-[0.65rem] uppercase tracking-[0.1em] text-center',
+            'flex items-center justify-center border-t py-7 font-mono text-[0.68rem] font-medium uppercase tracking-[0.1em] text-center',
             isOrange
-              ? 'border-[#faf4ee]/20 text-[#faf4ee]/75'
-              : 'border-[rgba(62,26,10,0.08)] text-[#8d6b4f]',
+              ? 'border-[#faf4ee]/20 text-[#faf4ee]'
+              : 'border-[rgba(62,26,10,0.12)] text-[#502e1a]',
           )}
         >
           <p>© 2026 Siddharth Kumar Rai. All rights reserved.</p>

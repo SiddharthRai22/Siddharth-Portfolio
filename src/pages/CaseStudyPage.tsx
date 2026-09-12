@@ -23,9 +23,9 @@ export const CaseStudyPage: React.FC = () => {
 
   if (!project) {
     return (
-      <div className="flex min-h-screen flex-col items-center justify-center bg-[#f7ede0] p-6 text-center text-[#3e1a0a]">
+      <div className="flex min-h-screen flex-col items-center justify-center bg-[#f7ede0] p-6 text-center text-[#240e04]">
         <h1 className="text-4xl font-semibold">Case study not found</h1>
-        <p className="mt-4 text-base text-[#6d4a32]">The project you are looking for does not exist or has been moved.</p>
+        <p className="mt-4 text-base text-[#441a08]">The project you are looking for does not exist or has been moved.</p>
         <Link
           to="/"
           className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#b45309] px-6 py-3 font-mono text-xs uppercase tracking-widest text-[#faf4ee] transition-colors hover:bg-[#3e1a0a]"
@@ -60,21 +60,21 @@ export const CaseStudyPage: React.FC = () => {
           <div className="section-shell relative z-10 flex min-h-[80svh] flex-col justify-between pb-12 pt-24 md:pb-16 md:pt-28">
             <Link
               to="/#work"
-              className="inline-flex w-fit items-center gap-2 rounded-full border border-[rgba(62,26,10,0.12)] bg-[#faf4ee] px-5 py-2.5 font-mono text-[0.75rem] uppercase tracking-[0.12em] text-[#6d4a32] transition-colors hover:border-[#b45309] hover:text-[#b45309]"
+              className="inline-flex w-fit items-center gap-2 rounded-full border border-[rgba(62,26,10,0.18)] bg-[#faf4ee] px-5 py-2.5 font-mono text-[0.75rem] uppercase tracking-[0.12em] text-[#441a08] font-semibold transition-colors hover:border-[#b45309] hover:text-[#b45309]"
             >
               <ArrowLeft className="h-4 w-4" /> Back
             </Link>
 
             <div className="max-w-5xl py-10">
-              <div className="mb-7 flex flex-wrap items-center gap-3 font-mono text-[0.75rem] uppercase tracking-[0.14em] text-[#b45309]">
+              <div className="mb-7 flex flex-wrap items-center gap-3 font-mono text-[0.75rem] uppercase tracking-[0.14em] text-[#b45309] font-bold">
                 <span>Case study / {project.id.padStart(2, '0')}</span>
-                <span className="text-[#8d6b4f]">•</span>
+                <span className="text-[#6e462d]">•</span>
                 <span>{categories.join(' + ')}</span>
               </div>
-              <h1 className="text-balance text-[clamp(3.2rem,9vw,8.5rem)] font-semibold leading-[1.05] tracking-[-0.01em] md:leading-[0.98] text-[#3e1a0a]">
+              <h1 className="text-balance text-[clamp(3.2rem,9vw,8.5rem)] font-semibold leading-[1.05] tracking-[-0.01em] md:leading-[0.98] text-[#240e04]">
                 {project.title}
               </h1>
-              <p className="mt-9 max-w-2xl text-lg leading-relaxed text-[#6d4a32] md:text-[1.35rem]">
+              <p className="mt-9 max-w-2xl text-lg leading-relaxed text-[#441a08] md:text-[1.35rem] font-normal">
                 {project.fullDescription || project.description}
               </p>
 
@@ -140,10 +140,10 @@ export const CaseStudyPage: React.FC = () => {
                 <div className="space-y-6 sm:space-y-8">
                   {project.overviewData.role && (
                     <div className="grid grid-cols-1 gap-1.5 md:grid-cols-[160px_1fr] md:gap-8 lg:grid-cols-[190px_1fr]">
-                      <span className="pt-0.5 font-mono text-[0.72rem] uppercase tracking-[0.14em] text-[#8d6b4f] sm:text-[0.75rem]">
+                      <span className="pt-0.5 font-mono text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-[#78350f] sm:text-[0.75rem]">
                         Role
                       </span>
-                      <div className="text-base font-semibold text-[#3e1a0a] sm:text-lg">
+                      <div className="text-base font-semibold text-[#240e04] sm:text-lg">
                         {project.overviewData.role}
                       </div>
                     </div>
@@ -151,10 +151,10 @@ export const CaseStudyPage: React.FC = () => {
 
                   {project.overviewData.platform && (
                     <div className="grid grid-cols-1 gap-1.5 md:grid-cols-[160px_1fr] md:gap-8 lg:grid-cols-[190px_1fr]">
-                      <span className="pt-0.5 font-mono text-[0.72rem] uppercase tracking-[0.14em] text-[#8d6b4f] sm:text-[0.75rem]">
+                      <span className="pt-0.5 font-mono text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-[#78350f] sm:text-[0.75rem]">
                         Platform
                       </span>
-                      <div className="text-base text-[#3e1a0a] sm:text-lg">
+                      <div className="text-base text-[#240e04] font-medium sm:text-lg">
                         {project.overviewData.platform}
                       </div>
                     </div>
@@ -162,10 +162,10 @@ export const CaseStudyPage: React.FC = () => {
 
                   {project.overviewData.timeline && (
                     <div className="grid grid-cols-1 gap-1.5 md:grid-cols-[160px_1fr] md:gap-8 lg:grid-cols-[190px_1fr]">
-                      <span className="pt-0.5 font-mono text-[0.72rem] uppercase tracking-[0.14em] text-[#8d6b4f] sm:text-[0.75rem]">
+                      <span className="pt-0.5 font-mono text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-[#78350f] sm:text-[0.75rem]">
                         Timeline
                       </span>
-                      <div className="text-base text-[#3e1a0a] sm:text-lg">
+                      <div className="text-base text-[#240e04] font-medium sm:text-lg">
                         {project.overviewData.timeline}
                       </div>
                     </div>
@@ -173,10 +173,10 @@ export const CaseStudyPage: React.FC = () => {
 
                   {project.overviewData.technology && (
                     <div className="grid grid-cols-1 gap-1.5 md:grid-cols-[160px_1fr] md:gap-8 lg:grid-cols-[190px_1fr]">
-                      <span className="pt-0.5 font-mono text-[0.72rem] uppercase tracking-[0.14em] text-[#8d6b4f] sm:text-[0.75rem]">
+                      <span className="pt-0.5 font-mono text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-[#78350f] sm:text-[0.75rem]">
                         Technology
                       </span>
-                      <div className="text-base text-[#3e1a0a] sm:text-lg">
+                      <div className="text-base text-[#240e04] font-medium sm:text-lg">
                         {Array.isArray(project.overviewData.technology)
                           ? project.overviewData.technology.join(', ')
                           : project.overviewData.technology}
@@ -186,10 +186,10 @@ export const CaseStudyPage: React.FC = () => {
 
                   {project.overviewData.status && (
                     <div className="grid grid-cols-1 gap-1.5 md:grid-cols-[160px_1fr] md:gap-8 lg:grid-cols-[190px_1fr]">
-                      <span className="pt-0.5 font-mono text-[0.72rem] uppercase tracking-[0.14em] text-[#8d6b4f] sm:text-[0.75rem]">
+                      <span className="pt-0.5 font-mono text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-[#78350f] sm:text-[0.75rem]">
                         Status
                       </span>
-                      <div className="text-base text-[#3e1a0a] sm:text-lg">
+                      <div className="text-base text-[#240e04] font-medium sm:text-lg">
                         {project.overviewData.status}
                       </div>
                     </div>
@@ -197,10 +197,10 @@ export const CaseStudyPage: React.FC = () => {
 
                   {project.overviewData.deliverables && (
                     <div className="grid grid-cols-1 gap-1.5 md:grid-cols-[160px_1fr] md:gap-8 lg:grid-cols-[190px_1fr]">
-                      <span className="pt-0.5 font-mono text-[0.72rem] uppercase tracking-[0.14em] text-[#8d6b4f] sm:text-[0.75rem]">
+                      <span className="pt-0.5 font-mono text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-[#78350f] sm:text-[0.75rem]">
                         Deliverables
                       </span>
-                      <div className="text-base leading-relaxed text-[#3e1a0a] sm:text-lg">
+                      <div className="text-base leading-relaxed text-[#240e04] font-medium sm:text-lg">
                         {Array.isArray(project.overviewData.deliverables)
                           ? project.overviewData.deliverables.join(', ')
                           : project.overviewData.deliverables}
@@ -210,10 +210,10 @@ export const CaseStudyPage: React.FC = () => {
 
                   {project.overviewData.features && (
                     <div className="grid grid-cols-1 gap-1.5 md:grid-cols-[160px_1fr] md:gap-8 lg:grid-cols-[190px_1fr]">
-                      <span className="pt-0.5 font-mono text-[0.72rem] uppercase tracking-[0.14em] text-[#8d6b4f] sm:text-[0.75rem]">
+                      <span className="pt-0.5 font-mono text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-[#78350f] sm:text-[0.75rem]">
                         Features
                       </span>
-                      <div className="text-base leading-relaxed text-[#3e1a0a] sm:text-lg">
+                      <div className="text-base leading-relaxed text-[#240e04] font-medium sm:text-lg">
                         {Array.isArray(project.overviewData.features)
                           ? project.overviewData.features.join(', ')
                           : project.overviewData.features}
@@ -223,10 +223,10 @@ export const CaseStudyPage: React.FC = () => {
 
                   {project.overviewData.overview && (
                     <div className="grid grid-cols-1 gap-1.5 md:grid-cols-[160px_1fr] md:gap-8 lg:grid-cols-[190px_1fr]">
-                      <span className="pt-0.5 font-mono text-[0.72rem] uppercase tracking-[0.14em] text-[#8d6b4f] sm:text-[0.75rem]">
+                      <span className="pt-0.5 font-mono text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-[#78350f] sm:text-[0.75rem]">
                         Overview
                       </span>
-                      <div className="max-w-3xl space-y-4 text-base leading-relaxed text-[#5a3822] sm:text-[1.05rem]">
+                      <div className="max-w-3xl space-y-4 text-base leading-relaxed text-[#441a08] sm:text-[1.05rem]">
                         {project.overviewData.overview.map((paragraph, index) => (
                           <p key={index}>{paragraph}</p>
                         ))}

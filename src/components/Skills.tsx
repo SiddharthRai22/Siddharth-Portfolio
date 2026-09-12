@@ -89,8 +89,8 @@ export const Skills = ({ theme: explicitTheme }: { theme?: SectionTheme } = {}) 
           </div>
           <p
             className={cn(
-              'max-w-lg text-base leading-relaxed lg:justify-self-end md:text-lg',
-              isOrange ? 'text-[#faf4ee]/85' : 'text-[#6d4a32]',
+              'max-w-lg text-base font-normal leading-relaxed lg:justify-self-end md:text-lg',
+              isOrange ? 'text-[#faf4ee]' : 'text-[#441a08]',
             )}
           >
             Tools and Technologies I use for full-stack development and AI application development.

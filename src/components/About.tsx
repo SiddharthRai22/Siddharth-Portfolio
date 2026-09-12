@@ -47,8 +47,8 @@ export const About = ({ theme: explicitTheme }: { theme?: SectionTheme } = {}) =
             >
               <div
                 className={cn(
-                  'space-y-5 text-sm sm:text-base md:text-[1.02rem] leading-[1.75]',
-                  isOrange ? 'text-[#faf4ee]/85' : 'text-[#6d4a32]',
+                  'space-y-5 text-sm sm:text-base md:text-[1.02rem] leading-[1.75] font-normal',
+                  isOrange ? 'text-[#faf4ee]' : 'text-[#441a08]',
                 )}
               >
                 <p>
@@ -56,18 +56,18 @@ export const About = ({ theme: explicitTheme }: { theme?: SectionTheme } = {}) =
                 </p>
                 <p>
                   I work with technologies such as{' '}
-                  <strong className={cn('font-semibold', isOrange ? 'text-[#faf4ee]' : 'text-[#3e1a0a]')}>
+                  <strong className={cn('font-semibold', isOrange ? 'text-[#faf4ee]' : 'text-[#1e0b04]')}>
                     React, Node.js, MongoDB, and Express
                   </strong>
                   , and have experience exploring{' '}
-                  <strong className={cn('font-semibold', isOrange ? 'text-[#faf4ee]' : 'text-[#3e1a0a]')}>
+                  <strong className={cn('font-semibold', isOrange ? 'text-[#faf4ee]' : 'text-[#1e0b04]')}>
                     LLM-based applications using LangChain and LangGraph
                   </strong>
                   . I enjoy turning ideas into practical applications, solving problems through code, and learning new technologies to improve the way I build software.
                 </p>
                 <p>
                   My current focus is on combining{' '}
-                  <strong className={cn('font-semibold', isOrange ? 'text-[#faf4ee]' : 'text-[#3e1a0a]')}>
+                  <strong className={cn('font-semibold', isOrange ? 'text-[#faf4ee]' : 'text-[#1e0b04]')}>
                     full-stack development with AI
                   </strong>{' '}
                   to build useful, reliable, and user-focused applications.
@@ -124,7 +124,7 @@ export const About = ({ theme: explicitTheme }: { theme?: SectionTheme } = {}) =
                     <p
                       className={cn(
                         'font-mono text-[0.65rem] sm:text-[0.7rem] uppercase tracking-[0.1em]',
-                        isOrange ? 'text-[#8d6b4f]' : 'text-[#faf4ee]/70',
+                        isOrange ? 'text-[#6e462d]' : 'text-[#faf4ee]',
                       )}
                     >
                       Full Stack &amp; AI Engineer

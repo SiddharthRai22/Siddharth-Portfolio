@@ -11,14 +11,14 @@
   --background: #f7ede0;
   --surface: #f7ede0;
   --surface-raised: #faf4ee;
-  --brown: #3e1a0a;
-  --brown-muted: #6d4a32;
-  --brown-soft: #8d6b4f;
-  --line: rgba(62, 26, 10, 0.1);
-  --line-strong: rgba(62, 26, 10, 0.18);
+  --brown: #240e04;
+  --brown-muted: #502e1a;
+  --brown-soft: #6e462d;
+  --line: rgba(62, 26, 10, 0.12);
+  --line-strong: rgba(62, 26, 10, 0.22);
   --line-orange: rgba(250, 244, 238, 0.22);
-  --foreground: #3e1a0a;
-  --muted: #8d6b4f;
+  --foreground: #240e04;
+  --muted: #6e462d;
   --signal: #b45309;
   --signal-hover: #8a3c06;
   --cyan: #c9a86a;
@@ -95,7 +95,7 @@ button {
   color: var(--brown-soft);
   font-family: var(--font-mono);
   font-size: 0.6875rem;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -111,7 +111,7 @@ button {
 }
 
 .system-label--on-orange {
-  color: rgba(250, 244, 238, 0.72);
+  color: #faf4ee;
 }
 
 .system-label--on-orange::before {

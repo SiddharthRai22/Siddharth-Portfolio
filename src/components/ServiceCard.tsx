@@ -48,14 +48,14 @@ export const ServiceCard = ({
           <li
             key={item}
             className={cn(
-              'flex items-center gap-3 text-sm',
-              isOrange ? 'text-[#faf4ee]/80' : 'text-[#6d4a32]',
+              'flex items-center gap-3 text-sm font-medium',
+              isOrange ? 'text-[#faf4ee]' : 'text-[#3e1a0a]',
             )}
           >
             <span
               className={cn(
                 'h-px w-3',
-                isOrange ? 'bg-[#faf4ee]/40' : 'bg-[#b45309]/50',
+                isOrange ? 'bg-[#faf4ee]/60' : 'bg-[#b45309]',
               )}
             />
             {item}

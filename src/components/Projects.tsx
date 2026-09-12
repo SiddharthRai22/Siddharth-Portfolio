@@ -142,10 +142,10 @@ export const Projects = ({ theme: explicitTheme }: { theme?: SectionTheme } = {}
                   isOrange
                     ? filter === category
                       ? 'border-[#faf4ee] bg-[#faf4ee] text-[#b45309]'
-                      : 'border-[#faf4ee]/30 text-[#faf4ee]/85 hover:border-[#faf4ee] hover:text-[#faf4ee]'
+                      : 'border-[#faf4ee]/40 text-[#faf4ee] hover:border-[#faf4ee] hover:bg-[#faf4ee]/15'
                     : filter === category
                       ? 'border-[#b45309] bg-[#b45309] text-[#faf4ee]'
-                      : 'border-[rgba(62,26,10,0.2)] text-[#6d4a32] hover:border-[#3e1a0a] hover:text-[#3e1a0a]',
+                      : 'border-[rgba(62,26,10,0.25)] text-[#502e1a] font-medium hover:border-[#b45309] hover:text-[#b45309]',
                 )}
               >
                 {category}

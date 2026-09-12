@@ -95,7 +95,7 @@ export const ProjectGallery = ({ images, title }: { images: GalleryImage[]; titl
               </>
             ) : null}
 
-            <p className="absolute bottom-8 left-1/2 -translate-x-1/2 font-mono text-[0.65rem] uppercase tracking-[0.12em] text-[#faf4ee]/60">
+            <p className="absolute bottom-8 left-1/2 -translate-x-1/2 font-mono text-[0.72rem] font-bold uppercase tracking-[0.14em] text-[#faf4ee]">
               {String(activeIndex + 1).padStart(2, '0')} / {String(images.length).padStart(2, '0')}
             </p>
           </>

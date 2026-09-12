@@ -137,10 +137,10 @@ export const LoadingScreen = ({ onDone }: { onDone?: () => void }) => {
       (ev) => {
         if (ev.lengthComputable && ev.total > 0) {
           const p = Math.round((ev.loaded / ev.total) * 100);
-          setProgress(Math.min(100, p));
+          setProgress(Math.min(100, Math.round(p)));
         } else {
-          // indeterminate: animate 0-92
-          setProgress((prev) => Math.min(92, prev + Math.random() * 8 + 2));
+          // indeterminate: animate 0-92 with clean integer increments
+          setProgress((prev) => Math.min(92, Math.round(prev + Math.floor(Math.random() * 8) + 2)));
         }
       },
       () => {
@@ -151,9 +151,9 @@ export const LoadingScreen = ({ onDone }: { onDone?: () => void }) => {
       },
     );
 
-    // fake progress while waiting if no lengthComputable
+    // fake progress while waiting if no lengthComputable (clean integer increments)
     const progInt = setInterval(() => {
-      setProgress((p) => (p >= 92 ? p : Math.min(92, p + Math.random() * 6)));
+      setProgress((p) => (p >= 92 ? p : Math.min(92, Math.round(p + Math.floor(Math.random() * 6) + 1))));
     }, 180);
 
     return () => {
@@ -194,17 +194,17 @@ export const LoadingScreen = ({ onDone }: { onDone?: () => void }) => {
           className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#f7ede0] px-6"
         >
           <div className="flex flex-col items-center gap-8">
-            <p className="font-mono text-[0.65rem] uppercase tracking-[0.18em] text-[#8d6b4f]">Preparing</p>
+            <p className="font-mono text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[#78350f]">Preparing</p>
 
             <div ref={mountRef} className="h-[140px] w-[140px] md:h-[160px] md:w-[160px]" aria-hidden="true" />
 
             <div className="flex flex-col items-center gap-3">
-              <h1 className="text-center text-[1.7rem] font-semibold tracking-[-0.02em] text-[#3e1a0a]">Siddharth Kumar Rai</h1>
-              <p className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-[#8d6b4f]">{progress}%</p>
-              <div className="mt-1 h-[2px] w-[180px] overflow-hidden rounded-full bg-[rgba(62,26,10,0.08)] md:w-[200px]">
+              <h1 className="text-center text-[1.7rem] font-semibold tracking-[-0.02em] text-[#240e04]">Siddharth Kumar Rai</h1>
+              <p className="font-mono text-[0.72rem] font-bold uppercase tracking-[0.14em] text-[#78350f]">{Math.round(progress)}%</p>
+              <div className="mt-1 h-[2px] w-[180px] overflow-hidden rounded-full bg-[rgba(62,26,10,0.15)] md:w-[200px]">
                 <motion.div
                   className="h-full bg-[#b45309]"
-                  animate={{ width: `${progress}%` }}
+                  animate={{ width: `${Math.round(progress)}%` }}
                   transition={{ duration: 0.25, ease: 'easeOut' }}
                 />
               </div>
