@@ -239,7 +239,7 @@ export const CaseStudyPage: React.FC = () => {
           </section>
         ) : null}
 
-        {project.images && project.images.length > 1 ? (
+        {(project.galleryImages && project.galleryImages.length > 0) || (project.images && project.images.length > 1) ? (
           <section className="border-t border-[rgba(62,26,10,0.08)] bg-[#faf4ee] py-16 md:py-20">
             <div className="section-shell">
               <div className="mb-10 sm:mb-12">
@@ -247,26 +247,13 @@ export const CaseStudyPage: React.FC = () => {
                   ✨ Highlights
                 </h2>
               </div>
-              <ProjectGallery images={project.images.slice(1)} title={project.title} />
+              <ProjectGallery
+                images={project.galleryImages ?? project.images!.slice(1)}
+                title={project.title}
+              />
             </div>
           </section>
         ) : null}
-
-        <section className="bg-[#f7ede0] py-16 md:py-20">
-          <div className="section-shell flex flex-col items-start justify-between gap-10 rounded-[24px] border border-[rgba(62,26,10,0.08)] bg-[#faf4ee] px-6 py-8 md:flex-row md:items-center md:px-10">
-            <div>
-              <p className="font-mono text-[0.75rem] uppercase tracking-[0.12em] text-[#b45309]">End of case study</p>
-              <h2 className="mt-4 text-3xl font-semibold text-[#3e1a0a] md:text-5xl">Explore the next work.</h2>
-            </div>
-            <Link
-              to="/#work"
-              className="group inline-flex min-h-12 items-center gap-2 rounded-full bg-[#b45309] px-6 text-sm font-semibold text-[#faf4ee] transition-colors hover:bg-[#3e1a0a]"
-            >
-              Return to work{' '}
-              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </Link>
-          </div>
-        </section>
       </main>
 
       <Contact />

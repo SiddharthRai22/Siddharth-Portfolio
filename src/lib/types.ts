@@ -31,6 +31,7 @@ export interface Project {
   previewUrl?: string;
   gitUrl?: string;
   images?: (string | StaticImageData)[];
+  galleryImages?: (string | StaticImageData)[];
   overviewData?: ProjectOverviewData;
 }
 

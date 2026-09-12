@@ -3,15 +3,21 @@ import { Project } from './types';
 import myTrain1 from '@/assets/projects/my-train/my-train-1.png';
 import myTrain2 from '@/assets/projects/my-train/my-train-2.png';
 import myTrain3 from '@/assets/projects/my-train/my-train-3.png';
+import myTrain4 from '@/assets/projects/my-train/my-train-4.png';
+import myTrain5 from '@/assets/projects/my-train/my-train-5.png';
+import myTrain6 from '@/assets/projects/my-train/my-train-6.png';
 
 import deepResearch1 from '@/assets/projects/deep-research/researchmind.jpg';
 
 import collegeAi1 from '@/assets/projects/college-ai/college-ai-assistant.png';
 import collegeAi2 from '@/assets/projects/college-ai/college-ai.jpg';
 
-import aiWebsite1 from '@/assets/projects/ai-website-generator/ai-website-generator.png';
-import aiWebsite2 from '@/assets/projects/ai-website-generator/ai-web-1.png';
-import aiWebsite3 from '@/assets/projects/ai-website-generator/ai-web-2.png';
+import aiWebsite1 from '@/assets/projects/ai-website-generator/ai-website-generator-1.png';
+import aiWebsite2 from '@/assets/projects/ai-website-generator/ai-website-generator-2.png';
+import aiWebsite3 from '@/assets/projects/ai-website-generator/ai-website-generator-3.png';
+import aiWebsite4 from '@/assets/projects/ai-website-generator/ai-website-generator-4.png';
+import aiWebsite5 from '@/assets/projects/ai-website-generator/ai-website-generator-5.jpeg';
+import aiWebsite6 from '@/assets/projects/ai-website-generator/ai-website-generator-6.jpeg';
 
 import finance1 from '@/assets/projects/finance-dashboard/finance-dashboard.png';
 import finance2 from '@/assets/projects/finance-dashboard/finance-web-1.png';
@@ -38,7 +44,8 @@ export const PROJECTS: Project[] = [
       'Delivered a lightning-fast, dependable transit tracking tool with live status, delay notifications, and local weather forecasts for travelers across India.',
     fullDescription:
       'My Train is a real-time Indian Railways tracker designed to keep travelers informed. Featuring live train tracking, station schedules, delay updates, and interactive maps, it delivers an intuitive and responsive experience.',
-    images: [myTrain1, myTrain2, myTrain3],
+    images: [myTrain1, myTrain2, myTrain3, myTrain4, myTrain5, myTrain6],
+    galleryImages: [myTrain1, myTrain2, myTrain3, myTrain4, myTrain5, myTrain6],
     overviewData: {
       role: 'Full Stack Developer',
       platform: 'Web',
@@ -141,7 +148,8 @@ export const PROJECTS: Project[] = [
       'Delivered a full-stack SaaS that generates and displays customized website previews in real-time, allowing users to rapidly ideate and prototype web pages.',
     fullDescription:
       'AI Website Generator is a complete web building platform that leverages modern LLMs to turn ideas into live web layouts. It features credit-based usage tiers, secure account management, and instant in-browser previews.',
-    images: [aiWebsite1, aiWebsite2, aiWebsite3],
+    images: [aiWebsite1, aiWebsite2, aiWebsite3, aiWebsite4, aiWebsite5, aiWebsite6],
+    galleryImages: [aiWebsite1, aiWebsite2, aiWebsite3, aiWebsite4, aiWebsite5, aiWebsite6],
     overviewData: {
       role: 'Full Stack Developer',
       platform: 'Web',
