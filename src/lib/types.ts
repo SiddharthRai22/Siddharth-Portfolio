@@ -2,6 +2,17 @@ export type StaticImageData = string | { src: string; width?: number; height?: n
 
 export type ProjectCategory = 'Web' | 'AI';
 
+export interface ProjectOverviewData {
+  role?: string;
+  platform?: string;
+  timeline?: string;
+  technology?: string | string[];
+  status?: string;
+  deliverables?: string | string[];
+  features?: string | string[];
+  overview?: string[];
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -20,6 +31,7 @@ export interface Project {
   previewUrl?: string;
   gitUrl?: string;
   images?: (string | StaticImageData)[];
+  overviewData?: ProjectOverviewData;
 }
 
 export interface Service {

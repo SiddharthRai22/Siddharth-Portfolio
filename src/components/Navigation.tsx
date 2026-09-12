@@ -7,10 +7,11 @@ import { cn } from '@/lib/utils';
 const NAV_ITEMS = ['About', 'Projects', 'Skills', 'Contact'];
 
 export const Navigation = ({ isReady = true }: { isReady?: boolean } = {}) => {
+  const { pathname } = useLocation();
+  const isProjectPage = pathname.startsWith('/work');
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('hero');
-  const { pathname } = useLocation();
+  const [activeSection, setActiveSection] = useState(isProjectPage ? 'projects' : 'hero');
   const isClickScrollingRef = useRef(false);
   const clickTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -20,15 +21,27 @@ export const Navigation = ({ isReady = true }: { isReady?: boolean } = {}) => {
     }
   }, []);
 
-  // Robust, smooth ScrollSpy for active section detection
+  // Robust, smooth ScrollSpy for active section detection & scroll styling
   useEffect(() => {
-    if (pathname !== '/') return;
-
     let ticking = false;
 
     const checkActiveSection = () => {
       const scrollY = window.scrollY;
       setIsScrolled(scrollY > 30);
+
+      // In case study page (/work/:id), highlight 'contact' if near bottom, otherwise stay on 'projects'
+      if (pathname.startsWith('/work')) {
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        if (scrollY + windowHeight >= documentHeight - 90) {
+          setActiveSection('contact');
+        } else {
+          setActiveSection('projects');
+        }
+        return;
+      }
+
+      if (pathname !== '/') return;
 
       // Don't override while a link click scroll is in flight
       if (isClickScrollingRef.current) return;
@@ -110,6 +123,17 @@ export const Navigation = ({ isReady = true }: { isReady?: boolean } = {}) => {
     setIsMobileMenuOpen(false);
     document.body.style.overflow = '';
 
+    // If on a project page and clicking Contact, smooth scroll to contact on this page
+    if (isProjectPage && href === '/#contact') {
+      const contactEl = document.getElementById('contact');
+      if (contactEl) {
+        e.preventDefault();
+        contactEl.scrollIntoView({ behavior: 'smooth' });
+        setActiveSection('contact');
+        return;
+      }
+    }
+
     if (pathname === '/' && href.startsWith('/#')) {
       e.preventDefault();
       const id = href.replace('/#', '');
@@ -150,15 +174,17 @@ export const Navigation = ({ isReady = true }: { isReady?: boolean } = {}) => {
     }
   };
 
+  const isNavSolid = isScrolled || isMobileMenuOpen || isProjectPage;
+
   return (
     <>
       <motion.header
-        initial={{ y: -100 }}
+        initial={isProjectPage ? false : { y: -100 }}
         animate={{ y: isReady ? 0 : -100 }}
         transition={isReady ? { duration: 0.6, ease: [0.25, 1, 0.5, 1] } : { duration: 0 }}
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-          isScrolled || isMobileMenuOpen
+          isNavSolid
             ? "border-b border-[rgba(62,26,10,0.08)] bg-[#f7ede0]/92 py-3 shadow-[0_4px_20px_-4px_rgba(62,26,10,0.06)] backdrop-blur-xl"
             : "border-b border-transparent bg-transparent py-4 sm:py-5"
         )}

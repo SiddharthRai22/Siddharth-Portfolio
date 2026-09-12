@@ -4,7 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Image } from '@/components/Image';
 import { motion } from 'motion/react';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Project } from '@/lib/types';
 
 export const ProjectCard = ({ project, index, active = false, variant = 'default' }: { project: Project; index: number; active?: boolean; variant?: 'default' | 'orange' }) => {
@@ -33,9 +33,14 @@ export const ProjectCard = ({ project, index, active = false, variant = 'default
             <p className={`mb-2 font-mono text-[0.6rem] uppercase tracking-[0.14em] ${isOrange ? 'text-[#faf4ee]/70' : 'text-[#8d6b4f]'}`}>Outcome</p>
             <p className={`max-w-md font-mono text-xs leading-relaxed ${isOrange ? 'text-[#faf4ee]' : 'text-[#3e1a0a]'}`}>{project.metrics}</p>
           </div>
-          <span className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition-colors ${isOrange ? 'bg-[#faf4ee] text-[#b45309] group-hover:bg-[#3e1a0a] group-hover:text-[#faf4ee]' : 'bg-[#b45309] text-[#faf4ee] group-hover:bg-[#3e1a0a]'}`}>
-            Open case study
-            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+          <span className="group/btn inline-flex items-center gap-2 rounded-full bg-[#1c1917] py-1.5 pl-2 pr-4.5 text-sm font-medium text-[#faf4ee] shadow-sm transition-all duration-300 hover:bg-[#18181b]">
+            <span className="relative flex h-6 w-6 shrink-0 items-center justify-center">
+              <span className="h-2 w-2 rounded-full bg-[#faf4ee] translate-x-0.5 transition-all duration-300 group-hover/btn:scale-0 group-hover/btn:opacity-0" />
+              <span className="absolute inset-0 flex items-center justify-center rounded-full bg-[#faf4ee] text-[#1c1917] opacity-0 scale-50 transition-all duration-300 group-hover/btn:scale-100 group-hover/btn:opacity-100 shadow-sm">
+                <ArrowRight className="h-3.5 w-3.5 stroke-[2.2]" />
+              </span>
+            </span>
+            <span className="tracking-tight whitespace-nowrap text-[0.9rem]">view case study</span>
           </span>
         </div>
       </article>

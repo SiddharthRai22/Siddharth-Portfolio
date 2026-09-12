@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import { Navigation } from '@/components/Navigation';
 import { Contact } from '@/components/Contact';
@@ -9,7 +9,6 @@ import { Image } from '@/components/Image';
 
 export const CaseStudyPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
   const project = PROJECTS.find((entry) => entry.id === id);
 
   useEffect(() => {
@@ -38,18 +37,13 @@ export const CaseStudyPage: React.FC = () => {
   }
 
   const categories = Array.isArray(project.category) ? project.category : [project.category];
-  const chapters = [
-    { number: '01', label: 'Challenge', title: 'The constraint', content: project.challenge },
-    { number: '02', label: 'System', title: 'The response', content: project.solution },
-    { number: '03', label: 'Outcome', title: 'The result', content: project.outcome },
-  ];
 
   return (
-    <div className="min-h-screen bg-[#f7ede0] text-[#3e1a0a]">
+    <div className="min-h-screen bg-[#f7ede0] font-sans text-[#3e1a0a]">
       <Navigation />
 
       <main>
-        <section className="relative min-h-[86svh] overflow-hidden border-b border-[rgba(62,26,10,0.08)]">
+        <section className="relative min-h-[80svh] overflow-hidden border-b border-[rgba(62,26,10,0.08)]">
           {project.images?.[0] ? (
             <Image
               src={project.images[0]}
@@ -63,12 +57,12 @@ export const CaseStudyPage: React.FC = () => {
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(250,244,238,0.96)_0%,rgba(250,244,238,0.86)_42%,rgba(250,244,238,0.18)_100%)]" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#f7ede0] via-transparent to-[#faf4ee]/40" />
 
-          <div className="section-shell relative z-10 flex min-h-[86svh] flex-col justify-between pb-6 pt-24 md:pb-8 md:pt-28">
+          <div className="section-shell relative z-10 flex min-h-[80svh] flex-col justify-between pb-12 pt-24 md:pb-16 md:pt-28">
             <Link
               to="/#work"
               className="inline-flex w-fit items-center gap-2 rounded-full border border-[rgba(62,26,10,0.12)] bg-[#faf4ee] px-5 py-2.5 font-mono text-[0.75rem] uppercase tracking-[0.12em] text-[#6d4a32] transition-colors hover:border-[#b45309] hover:text-[#b45309]"
             >
-              <ArrowLeft className="h-4 w-4" /> Back to works
+              <ArrowLeft className="h-4 w-4" /> Back
             </Link>
 
             <div className="max-w-5xl py-10">
@@ -107,67 +101,151 @@ export const CaseStudyPage: React.FC = () => {
                 ) : null}
               </div>
             </div>
-
-            <div className="grid grid-cols-2 gap-4 border-t border-[rgba(62,26,10,0.08)] pt-5 font-mono text-[0.70rem] uppercase tracking-[0.12em] text-[#8d6b4f] md:grid-cols-4 md:gap-4">
-              <span className="whitespace-nowrap text-center">Collection</span>
-              <span className="whitespace-nowrap text-center">{categories.join(' / ')}</span>
-              <span className="whitespace-nowrap text-center">Status / Deployed</span>
-              <span className="whitespace-nowrap text-center text-[#b45309]">Case live</span>
-            </div>
           </div>
         </section>
 
-        <section className="border-b border-[rgba(62,26,10,0.08)] bg-[#faf4ee] py-14 md:py-20">
-          <div className="section-shell grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:gap-16">
-            <div>
-              <p className="system-label !text-[#8d6b4f] [&::before]:!bg-[#b45309] [&::before]:!shadow-[0_0_0.7rem_rgba(180,83,9,0.38)]">
-                Project detail
-              </p>
-            </div>
-            <div className="grid gap-3 sm:grid-cols-2">
-              <div className="rounded-[20px] border border-[rgba(62,26,10,0.08)] bg-[#f7ede0] p-6">
-                <p className="font-mono text-[0.70rem] uppercase tracking-[0.12em] text-[#8d6b4f]">Outcome</p>
-                <p className="mt-5 text-[1.7rem] leading-snug text-[#b45309]">{project.metrics}</p>
-              </div>
-              <div className="rounded-[20px] border border-[rgba(62,26,10,0.08)] bg-[#f7ede0] p-6">
-                <p className="font-mono text-[0.70rem] uppercase tracking-[0.12em] text-[#8d6b4f]">Technology</p>
-                <p className="mt-5 text-[0.95rem] leading-relaxed text-[#6d4a32]">{project.tech.join(' / ')}</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-[#f7ede0] py-16 md:py-24">
-          <div className="section-shell">
-            {chapters.map((chapter) => (
-              <article
-                key={chapter.number}
-                className="grid gap-6 border-t border-[rgba(62,26,10,0.08)] py-8 lg:grid-cols-[0.45fr_0.75fr_1.3fr] lg:gap-12 lg:py-14"
-              >
-                <span className="font-mono text-sm text-[#b45309]">{chapter.number}</span>
-                <div>
-                  <p className="font-mono text-[0.70rem] uppercase tracking-[0.14em] text-[#8d6b4f]">{chapter.label}</p>
-                  <h2 className="mt-4 text-[2.1rem] font-semibold text-[#3e1a0a]">{chapter.title}</h2>
-                </div>
-                <p className="text-[1.15rem] leading-relaxed text-[#6d4a32] md:text-[1.35rem]">{chapter.content}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        {project.images && project.images.length > 1 ? (
-          <section className="border-y border-[rgba(62,26,10,0.08)] bg-[#faf4ee] py-16 md:py-20">
-            <div className="section-shell">
-              <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
-                <div>
-                  <p className="system-label mb-5 !text-[#8d6b4f] [&::before]:!bg-[#b45309] [&::before]:!shadow-[0_0_0.7rem_rgba(180,83,9,0.38)]">
-                    Interface collection
-                  </p>
-                  <h2 className="text-[clamp(2.8rem,6vw,6rem)] font-semibold leading-[0.9] tracking-[-0.02em] text-[#3e1a0a]">
-                    System views.
+        {/* Detailed Overview Section */}
+        {project.overviewData ? (
+          <section className="bg-[#f7ede0] py-12 md:py-20">
+            <div className="section-shell max-w-5xl">
+              <div className="rounded-[24px] border border-[rgba(62,26,10,0.08)] bg-[#faf4ee] p-7 shadow-[0_4px_24px_-6px_rgba(62,26,10,0.04)] sm:rounded-[32px] sm:p-12 md:p-16 lg:p-20">
+                <div className="mb-10 sm:mb-14">
+                  <h2 className="flex items-center gap-3 font-serif text-[clamp(2.25rem,4.5vw,3.75rem)] font-normal leading-tight tracking-[-0.01em] text-[#3e1a0a]">
+                    <svg
+                      className="h-8 w-8 shrink-0 sm:h-10 sm:w-10"
+                      viewBox="0 0 32 32"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2C12.5 7.5 16.5 11.5 22 12C16.5 12.5 12.5 16.5 12 22C11.5 16.5 7.5 12.5 2 12C7.5 11.5 11.5 7.5 12 2Z"
+                        fill="url(#sparkle-grad-1)"
+                      />
+                      <path
+                        d="M24 16C24.3 19.7 27 22.4 30.7 22.7C27 23 24.3 25.7 24 29.4C23.7 25.7 21 23 17.3 22.7C21 22.4 23.7 19.7 24 16Z"
+                        fill="url(#sparkle-grad-1)"
+                      />
+                      <defs>
+                        <linearGradient id="sparkle-grad-1" x1="2" y1="2" x2="30.7" y2="29.4" gradientUnits="userSpaceOnUse">
+                          <stop stopColor="#f6ad55" />
+                          <stop offset="1" stopColor="#dd6b20" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                    Overview
                   </h2>
                 </div>
-                <p className="font-mono text-[0.65rem] uppercase tracking-[0.12em] text-[#8d6b4f]">Select to inspect</p>
+
+                <div className="space-y-6 sm:space-y-8">
+                  {project.overviewData.role && (
+                    <div className="grid grid-cols-1 gap-1.5 md:grid-cols-[160px_1fr] md:gap-8 lg:grid-cols-[190px_1fr]">
+                      <span className="pt-0.5 font-mono text-[0.72rem] uppercase tracking-[0.14em] text-[#8d6b4f] sm:text-[0.75rem]">
+                        Role
+                      </span>
+                      <div className="text-base font-semibold text-[#3e1a0a] sm:text-lg">
+                        {project.overviewData.role}
+                      </div>
+                    </div>
+                  )}
+
+                  {project.overviewData.platform && (
+                    <div className="grid grid-cols-1 gap-1.5 md:grid-cols-[160px_1fr] md:gap-8 lg:grid-cols-[190px_1fr]">
+                      <span className="pt-0.5 font-mono text-[0.72rem] uppercase tracking-[0.14em] text-[#8d6b4f] sm:text-[0.75rem]">
+                        Platform
+                      </span>
+                      <div className="text-base text-[#3e1a0a] sm:text-lg">
+                        {project.overviewData.platform}
+                      </div>
+                    </div>
+                  )}
+
+                  {project.overviewData.timeline && (
+                    <div className="grid grid-cols-1 gap-1.5 md:grid-cols-[160px_1fr] md:gap-8 lg:grid-cols-[190px_1fr]">
+                      <span className="pt-0.5 font-mono text-[0.72rem] uppercase tracking-[0.14em] text-[#8d6b4f] sm:text-[0.75rem]">
+                        Timeline
+                      </span>
+                      <div className="text-base text-[#3e1a0a] sm:text-lg">
+                        {project.overviewData.timeline}
+                      </div>
+                    </div>
+                  )}
+
+                  {project.overviewData.technology && (
+                    <div className="grid grid-cols-1 gap-1.5 md:grid-cols-[160px_1fr] md:gap-8 lg:grid-cols-[190px_1fr]">
+                      <span className="pt-0.5 font-mono text-[0.72rem] uppercase tracking-[0.14em] text-[#8d6b4f] sm:text-[0.75rem]">
+                        Technology
+                      </span>
+                      <div className="text-base text-[#3e1a0a] sm:text-lg">
+                        {Array.isArray(project.overviewData.technology)
+                          ? project.overviewData.technology.join(', ')
+                          : project.overviewData.technology}
+                      </div>
+                    </div>
+                  )}
+
+                  {project.overviewData.status && (
+                    <div className="grid grid-cols-1 gap-1.5 md:grid-cols-[160px_1fr] md:gap-8 lg:grid-cols-[190px_1fr]">
+                      <span className="pt-0.5 font-mono text-[0.72rem] uppercase tracking-[0.14em] text-[#8d6b4f] sm:text-[0.75rem]">
+                        Status
+                      </span>
+                      <div className="text-base text-[#3e1a0a] sm:text-lg">
+                        {project.overviewData.status}
+                      </div>
+                    </div>
+                  )}
+
+                  {project.overviewData.deliverables && (
+                    <div className="grid grid-cols-1 gap-1.5 md:grid-cols-[160px_1fr] md:gap-8 lg:grid-cols-[190px_1fr]">
+                      <span className="pt-0.5 font-mono text-[0.72rem] uppercase tracking-[0.14em] text-[#8d6b4f] sm:text-[0.75rem]">
+                        Deliverables
+                      </span>
+                      <div className="text-base leading-relaxed text-[#3e1a0a] sm:text-lg">
+                        {Array.isArray(project.overviewData.deliverables)
+                          ? project.overviewData.deliverables.join(', ')
+                          : project.overviewData.deliverables}
+                      </div>
+                    </div>
+                  )}
+
+                  {project.overviewData.features && (
+                    <div className="grid grid-cols-1 gap-1.5 md:grid-cols-[160px_1fr] md:gap-8 lg:grid-cols-[190px_1fr]">
+                      <span className="pt-0.5 font-mono text-[0.72rem] uppercase tracking-[0.14em] text-[#8d6b4f] sm:text-[0.75rem]">
+                        Features
+                      </span>
+                      <div className="text-base leading-relaxed text-[#3e1a0a] sm:text-lg">
+                        {Array.isArray(project.overviewData.features)
+                          ? project.overviewData.features.join(', ')
+                          : project.overviewData.features}
+                      </div>
+                    </div>
+                  )}
+
+                  {project.overviewData.overview && (
+                    <div className="grid grid-cols-1 gap-1.5 md:grid-cols-[160px_1fr] md:gap-8 lg:grid-cols-[190px_1fr]">
+                      <span className="pt-0.5 font-mono text-[0.72rem] uppercase tracking-[0.14em] text-[#8d6b4f] sm:text-[0.75rem]">
+                        Overview
+                      </span>
+                      <div className="max-w-3xl space-y-4 text-base leading-relaxed text-[#5a3822] sm:text-[1.05rem]">
+                        {project.overviewData.overview.map((paragraph, index) => (
+                          <p key={index}>{paragraph}</p>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </section>
+        ) : null}
+
+        {project.images && project.images.length > 1 ? (
+          <section className="border-t border-[rgba(62,26,10,0.08)] bg-[#faf4ee] py-16 md:py-20">
+            <div className="section-shell">
+              <div className="mb-10 sm:mb-12">
+                <h2 className="font-serif text-[clamp(2.25rem,5vw,4.25rem)] font-normal leading-[1.08] tracking-[-0.01em] text-[#3e1a0a]">
+                  ✨ Highlights
+                </h2>
               </div>
               <ProjectGallery images={project.images.slice(1)} title={project.title} />
             </div>
@@ -197,3 +275,4 @@ export const CaseStudyPage: React.FC = () => {
 };
 
 export default CaseStudyPage;
+
