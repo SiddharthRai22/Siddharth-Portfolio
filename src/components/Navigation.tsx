@@ -104,17 +104,30 @@ export const Navigation = ({ isReady = true }: { isReady?: boolean } = {}) => {
     };
   }, [pathname, isReady]);
 
-  // Lock body scroll when mobile menu is open
+  // Lock body & html scroll and prevent touchmove when mobile menu is open
   useEffect(() => {
     if (!isMobileMenuOpen) return;
-    const previousOverflow = document.body.style.overflow;
+    const previousBodyOverflow = document.body.style.overflow;
+    const previousHtmlOverflow = document.documentElement.style.overflow;
     document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+
+    const handleTouchMove = (e: TouchEvent) => {
+      // Prevent scrolling the page behind or scrolling the nav
+      e.preventDefault();
+    };
+
+    document.addEventListener('touchmove', handleTouchMove, { passive: false });
+
     const closeOnEscape = (event: KeyboardEvent) => {
       if (event.key === 'Escape') setIsMobileMenuOpen(false);
     };
     document.addEventListener('keydown', closeOnEscape);
+
     return () => {
-      document.body.style.overflow = previousOverflow;
+      document.body.style.overflow = previousBodyOverflow;
+      document.documentElement.style.overflow = previousHtmlOverflow;
+      document.removeEventListener('touchmove', handleTouchMove);
       document.removeEventListener('keydown', closeOnEscape);
     };
   }, [isMobileMenuOpen]);
@@ -122,6 +135,7 @@ export const Navigation = ({ isReady = true }: { isReady?: boolean } = {}) => {
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     setIsMobileMenuOpen(false);
     document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
 
     // If on a project page and clicking Contact, smooth scroll to contact on this page
     if (isProjectPage && href === '/#contact') {
@@ -266,35 +280,39 @@ export const Navigation = ({ isReady = true }: { isReady?: boolean } = {}) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             id="mobile-navigation"
-            className="fixed inset-0 z-40 overflow-y-auto bg-[#f7ede0] px-4 pb-8 pt-24 lg:hidden"
+            className="fixed inset-0 z-40 overflow-hidden touch-none bg-[#f7ede0] px-5 pb-6 pt-20 lg:hidden flex flex-col justify-between"
           >
-            <nav className="relative flex min-h-[calc(100vh-6rem)] flex-col" aria-label="Mobile navigation">
-              <p className="system-label mb-6">Navigation</p>
-              {NAV_ITEMS.map((item, index) => {
-                const targetId = item.toLowerCase();
-                const isActive = activeSection === targetId;
-                return (
-                  <Link 
-                    key={item} 
-                    to={`/#${targetId}`} 
-                    onClick={(e) => handleLinkClick(e as any, `/#${targetId}`)}
-                    className={cn(
-                      "group flex items-center justify-between border-t border-[rgba(62,26,10,0.08)] py-4 text-[clamp(1.8rem,9vw,3.2rem)] font-semibold leading-none transition-colors cursor-pointer",
-                      isActive ? "text-[#b45309]" : "text-[#3e1a0a] hover:text-[#b45309]"
-                    )}
-                  >
-                    <span>{item}</span>
-                    <span className={cn(
-                      "font-mono text-xs font-bold transition-colors",
-                      isActive ? "text-[#b45309]" : "text-[#6e462d] group-hover:text-[#b45309]"
-                    )}>
-                      0{index + 1}
-                    </span>
-                  </Link>
-                );
-              })}
+            <nav className="relative flex flex-1 flex-col justify-between" aria-label="Mobile navigation">
+              <div>
+                <p className="system-label mb-3">Navigation</p>
+                <div className="flex flex-col">
+                  {NAV_ITEMS.map((item, index) => {
+                    const targetId = item.toLowerCase();
+                    const isActive = activeSection === targetId;
+                    return (
+                      <Link 
+                        key={item} 
+                        to={`/#${targetId}`} 
+                        onClick={(e) => handleLinkClick(e as any, `/#${targetId}`)}
+                        className={cn(
+                          "group flex items-center justify-between border-t border-[rgba(62,26,10,0.08)] py-3 sm:py-4 text-[clamp(1.75rem,7.5vw,2.8rem)] font-semibold leading-none transition-colors cursor-pointer",
+                          isActive ? "text-[#b45309]" : "text-[#3e1a0a] hover:text-[#b45309]"
+                        )}
+                      >
+                        <span>{item}</span>
+                        <span className={cn(
+                          "font-mono text-xs font-bold transition-colors",
+                          isActive ? "text-[#b45309]" : "text-[#6e462d] group-hover:text-[#b45309]"
+                        )}>
+                          0{index + 1}
+                        </span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
 
-              <div className="mt-auto flex items-center justify-between border-t border-[rgba(62,26,10,0.08)] pt-6">
+              <div className="mt-6 flex items-center justify-between border-t border-[rgba(62,26,10,0.08)] pt-5">
                 <div className="flex items-center gap-3">
                   <a
                     href="https://github.com/SiddharthRai22"
