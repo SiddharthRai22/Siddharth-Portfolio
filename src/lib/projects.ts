@@ -9,6 +9,8 @@ import myTrain6 from '@/assets/projects/my-train/my-train-6.png';
 
 import collegeAi1 from '@/assets/projects/college-ai/college-ai-assistant-1.png';
 
+import researchAgent1 from '@/assets/projects/research-agent/research-agent-1.png';
+
 import aiWebsite1 from '@/assets/projects/ai-website-generator/ai-website-generator-1.png';
 import aiWebsite2 from '@/assets/projects/ai-website-generator/ai-website-generator-2.png';
 import aiWebsite3 from '@/assets/projects/ai-website-generator/ai-website-generator-3.png';
@@ -76,7 +78,8 @@ export const PROJECTS: Project[] = [
       'Automated the end-to-end research pipeline, generating comprehensive, well-structured analytical reports with high factual reliability.',
     fullDescription:
       'Deep Research AI Agent is an autonomous multi-agent platform that conducts in-depth web investigations. It coordinates agents across browsing, data filtering, multi-source synthesis, and report evaluation to deliver ready-to-read research briefs.',
-    images: [],
+    images: [researchAgent1],
+    galleryImages: [researchAgent1],
     overviewData: {
       role: 'AI Engineer',
       platform: 'Web & CLI',
