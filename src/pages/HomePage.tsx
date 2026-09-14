@@ -34,7 +34,7 @@ export const HomePage = () => {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    document.title = "Siddharth Kumar Rai | Full Stack Developer & AI Engineer";
+    document.title = "Siddharth Kumar Rai";
   }, []);
 
   return (
