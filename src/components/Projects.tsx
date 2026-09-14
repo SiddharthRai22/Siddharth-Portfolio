@@ -115,11 +115,11 @@ export const Projects = ({ theme: explicitTheme }: { theme?: SectionTheme } = {}
       <ParallaxSection className="section-shell py-20 md:py-28">
         <div
           className={cn(
-            'grid gap-8 border-b pb-10 lg:grid-cols-[1fr_auto] lg:items-end',
+            'border-b pb-10',
             isOrange ? 'border-[#faf4ee]/20' : 'border-[rgba(62,26,10,0.1)]',
           )}
         >
-          <div>
+          <div className="flex flex-wrap items-start justify-between gap-6">
             <h2
               className={cn(
                 'text-balance text-[clamp(3rem,7vw,7rem)] font-semibold leading-[0.88] tracking-[-0.02em]',
@@ -128,30 +128,48 @@ export const Projects = ({ theme: explicitTheme }: { theme?: SectionTheme } = {}
             >
               My Projects
             </h2>
-          </div>
-          <fieldset className="flex flex-wrap gap-2">
-            <legend className="sr-only">Filter projects</legend>
-            {FILTERS.map((category) => (
-              <button
-                key={category}
-                type="button"
-                onClick={() => selectFilter(category)}
-                aria-pressed={filter === category}
+
+            <div className="flex flex-col items-start sm:items-end gap-4">
+              <a
+                href="https://github.com/SiddharthRai22"
+                target="_blank"
+                rel="noopener noreferrer"
                 className={cn(
-                  'min-h-10 rounded-full border px-4 font-mono text-[0.65rem] uppercase tracking-[0.12em] transition-colors',
+                  'group inline-flex items-center gap-1.5 font-mono text-xs sm:text-sm tracking-[0.1em] transition-colors',
                   isOrange
-                    ? filter === category
-                      ? 'border-[#faf4ee] bg-[#faf4ee] text-[#b45309]'
-                      : 'border-[#faf4ee]/40 text-[#faf4ee] hover:border-[#faf4ee] hover:bg-[#faf4ee]/15'
-                    : filter === category
-                      ? 'border-[#b45309] bg-[#b45309] text-[#faf4ee]'
-                      : 'border-[rgba(62,26,10,0.25)] text-[#502e1a] font-medium hover:border-[#b45309] hover:text-[#b45309]',
+                    ? 'text-[#faf4ee]/80 hover:text-[#faf4ee]'
+                    : 'text-[#6e462d] hover:text-[#b45309]',
                 )}
               >
-                {category}
-              </button>
-            ))}
-          </fieldset>
+                <span>View all on GitHub</span>
+                <span className="text-[1.05em] leading-none transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+              </a>
+
+              <fieldset className="flex flex-wrap gap-2">
+                <legend className="sr-only">Filter projects</legend>
+                {FILTERS.map((category) => (
+                  <button
+                    key={category}
+                    type="button"
+                    onClick={() => selectFilter(category)}
+                    aria-pressed={filter === category}
+                    className={cn(
+                      'min-h-10 rounded-full border px-4 font-mono text-[0.65rem] uppercase tracking-[0.12em] transition-colors',
+                      isOrange
+                        ? filter === category
+                          ? 'border-[#faf4ee] bg-[#faf4ee] text-[#b45309]'
+                          : 'border-[#faf4ee]/40 text-[#faf4ee] hover:border-[#faf4ee] hover:bg-[#faf4ee]/15'
+                        : filter === category
+                          ? 'border-[#b45309] bg-[#b45309] text-[#faf4ee]'
+                          : 'border-[rgba(62,26,10,0.25)] text-[#502e1a] font-medium hover:border-[#b45309] hover:text-[#b45309]',
+                    )}
+                  >
+                    {category}
+                  </button>
+                ))}
+              </fieldset>
+            </div>
+          </div>
         </div>
 
         <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(22rem,0.9fr)] lg:gap-20">
