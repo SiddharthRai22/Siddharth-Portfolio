@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import { Navigation } from '@/components/Navigation';
 import { Contact } from '@/components/Contact';
+import { Footer } from '@/components/Footer';
 import { ProjectGallery } from '@/components/ProjectGallery';
 import { PROJECTS } from '@/lib/constants';
 import { Image } from '@/components/Image';
@@ -257,6 +258,7 @@ export const CaseStudyPage: React.FC = () => {
       </main>
 
       <Contact />
+      <Footer />
     </div>
   );
 };

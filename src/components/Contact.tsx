@@ -248,18 +248,6 @@ export const Contact = ({ theme: explicitTheme }: { theme?: SectionTheme } = {})
             </div>
           </div>
         </motion.div>
-
-        {/* Footer */}
-        <footer
-          className={cn(
-            'flex items-center justify-center border-t py-7 font-mono text-[0.68rem] font-medium uppercase tracking-[0.1em] text-center',
-            isOrange
-              ? 'border-[#faf4ee]/20 text-[#faf4ee]'
-              : 'border-[rgba(62,26,10,0.12)] text-[#502e1a]',
-          )}
-        >
-          <p>© 2026 Siddharth Kumar Rai. All rights reserved.</p>
-        </footer>
       </ParallaxSection>
     </section>
   );
