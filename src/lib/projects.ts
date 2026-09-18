@@ -21,6 +21,12 @@ import aiWebsite6 from '@/assets/projects/ai-website-generator/ai-website-genera
 import finance1 from '@/assets/projects/finance-dashboard/finance-dashboard-1.png';
 import finance2 from '@/assets/projects/finance-dashboard/finance-dashboard-2.png';
 
+import travelPlanner1 from '@/assets/projects/ai-travel-planner/ai-travel-planner-1.png';
+import travelPlanner2 from '@/assets/projects/ai-travel-planner/ai-travel-planner-2.png';
+import travelPlanner3 from '@/assets/projects/ai-travel-planner/ai-travel-planner-3.png';
+import travelPlanner4 from '@/assets/projects/ai-travel-planner/ai-travel-planner-4.png';
+import travelPlanner5 from '@/assets/projects/ai-travel-planner/ai-travel-planner-5.png';
+
 export const PROJECTS: Project[] = [
   {
     id: '1',
@@ -29,7 +35,7 @@ export const PROJECTS: Project[] = [
     description:
       'Real-time Indian Railways tracker with live train locations, station progress, weather, and route information.',
     tech: ['Next.js', 'TypeScript', 'Tailwind CSS'],
-    metrics: '• Live Train Tracking • Interactive Maps • Weather Data',
+    metrics: 'Live Train Tracking • Interactive Maps • Weather Data',
     color: 'from-amber-500 to-orange-600',
     accent: '#b45309',
     featured: true,
@@ -59,6 +65,54 @@ export const PROJECTS: Project[] = [
   },
   {
     id: '2',
+    title: 'AI Travel Planner',
+    category: ['AI', 'Web'],
+    description:
+      'Multi-agent AI travel planner that searches flights and hotels and generates personalized day-by-day itineraries.',
+    tech: ['Python', 'LangGraph', 'LangChain', 'Groq', 'Tavily', 'Streamlit'],
+    metrics: 'Multi-Agent Workflow • Flight & Hotel Search • Itinerary Generation',
+    color: 'from-orange-500 to-amber-600',
+    accent: '#b45309',
+    featured: true,
+    previewUrl: '',
+    gitUrl: 'https://github.com/SiddharthRai22/Travel-AI-Agent',
+    challenge:
+      'Orchestrating disparate search APIs for airline pricing, accommodation availability, and local attractions into a coherent, schedule-optimized itinerary without context breakdown.',
+    solution:
+      'Architected a cooperative multi-agent system where specialized AI agents coordinate to retrieve real-time flight information, discover hotel options, and generate personalized day-by-day itineraries using LangGraph.',
+    outcome:
+      'Delivered a comprehensive multi-agent travel planning system that automates the process of researching flights, hotels, and trip activities based on user requirements.',
+    fullDescription:
+      'AI Travel Planner is a multi-agent travel planning system that automates the process of researching flights, hotels, and trip activities based on user requirements.',
+    images: [
+      travelPlanner1,
+      travelPlanner2,
+      travelPlanner3,
+      travelPlanner4,
+      travelPlanner5,
+    ],
+    galleryImages: [
+      travelPlanner1,
+      travelPlanner2,
+      travelPlanner3,
+      travelPlanner4,
+      travelPlanner5,
+    ],
+    overviewData: {
+      role: 'AI Engineer',
+      platform: 'Web & CLI',
+      technology: 'Python, LangGraph, LangChain, Groq, Tavily, AviationStack, Streamlit',
+      status: 'Completed',
+      features:
+        'Flight Search, Hotel Search, Itinerary Generation, Multi-Agent Workflow, Session Persistence, Travel Plan Export',
+      overview: [
+        'Built a multi-agent travel planning system that automates the process of researching flights, hotels, and trip activities based on user requirements.',
+        'Specialized AI agents coordinate to retrieve real-time flight information, discover hotel options, and generate personalized day-by-day itineraries. The system uses LangGraph to manage the agent workflow.',
+      ],
+    },
+  },
+  {
+    id: '3',
     title: 'Deep Research AI Agent',
     category: ['AI'],
     description:
@@ -93,7 +147,7 @@ export const PROJECTS: Project[] = [
     },
   },
   {
-    id: '3',
+    id: '4',
     title: 'College AI Assistant',
     category: ['AI'],
     description:
@@ -129,7 +183,7 @@ export const PROJECTS: Project[] = [
     },
   },
   {
-    id: '4',
+    id: '5',
     title: 'AI Website Generator',
     category: ['Web', 'AI'],
     description:
@@ -164,7 +218,7 @@ export const PROJECTS: Project[] = [
     },
   },
   {
-    id: '5',
+    id: '6',
     title: 'Finance Dashboard UI',
     category: ['Web'],
     description:
